@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import { LayoutProvider } from "./Layout/LayoutContext";
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // import { Auth0Provider } from "@auth0/auth0-react";
 
 const defaultTheme = createMuiTheme({
@@ -84,4 +84,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.unregister();
+serviceWorkerRegistration.register();
