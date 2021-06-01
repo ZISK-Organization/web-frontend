@@ -1,0 +1,26 @@
+{
+  "name": "Capture The Flag",
+  "author": "Jakub Šťastný",
+  "deadline": "2021-07-31T08:00:00",
+  "points": 10,
+  "type": ["SP"],
+  "categories": ["ALG"],
+  "status": "corrected",
+  "difficulty": 3,
+  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Dignissim sodales ut eu sem integer. Risus sed vulputate odio ut. Lobortis elementum nibh tellus molestie nunc non. Et malesuada fames ac turpis egestas integer eget aliquet. Ut ornare lectus sit amet est. Elementum sagittis vitae et leo duis ut. Volutpat odio facilisis mauris sit. Duis at consectetur lorem donec massa sapien. Sit amet consectetur adipiscing elit duis tristique sollicitudin. Elit ut aliquam purus sit amet luctus. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor.</p><p>Orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Enim diam vulputate ut pharetra sit amet aliquam id diam. Amet consectetur adipiscing elit ut. Dolor sit amet consectetur adipiscing elit duis tristique sollicitudin nibh. Neque laoreet suspendisse interdum consectetur libero id faucibus. Maecenas ultricies mi eget mauris pharetra et ultrices. Odio eu feugiat pretium nibh ipsum consequat. Non arcu risus quis varius quam quisque id. Id diam vel quam elementum pulvinar. Risus ultricies tristique nulla aliquet. Pellentesque id nibh tortor id. Placerat in egestas erat imperdiet sed euismod nisi. Fusce id velit ut tortor pretium viverra suspendisse potenti. Imperdiet nulla malesuada pellentesque elit eget gravida. Consectetur adipiscing elit duis tristique sollicitudin. Sit amet venenatis urna cursus eget nunc scelerisque.</p><p>Ut tellus elementum sagittis vitae et leo duis ut diam. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Nibh tellus molestie nunc non blandit. Tortor pretium viverra suspendisse potenti nullam ac tortor. Proin sed libero enim sed faucibus. Diam maecenas ultricies mi eget mauris pharetra. Ac placerat vestibulum lectus mauris ultrices eros in. Dapibus ultrices in iaculis nunc. Et pharetra pharetra massa massa ultricies. Consectetur libero id faucibus nisl tincidunt eget nullam non. Sed arcu non odio euismod lacinia at quis. Arcu felis bibendum ut tristique et egestas quis ipsum. Egestas dui id ornare arcu odio ut. Vivamus arcu felis bibendum ut tristique. Purus gravida quis blandit turpis cursus in hac habitasse platea. Velit ut tortor pretium viverra suspendisse potenti nullam. Semper risus in hendrerit gravida rutrum.</p><p>Ac placerat vestibulum lectus mauris ultrices. At auctor urna nunc id cursus metus. Ipsum dolor sit amet consectetur adipiscing. Metus vulputate eu scelerisque felis. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Proin libero nunc consequat interdum varius sit amet mattis vulputate. Felis donec et odio pellentesque diam volutpat. Vulputate odio ut enim blandit volutpat. Etiam erat velit scelerisque in dictum non consectetur a erat. Sit amet commodo nulla facilisi nullam vehicula ipsum. Eu augue ut lectus arcu bibendum at. Vel eros donec ac odio tempor orci dapibus ultrices in. Eu feugiat pretium nibh ipsum consequat. At varius vel pharetra vel turpis. Libero justo laoreet sit amet. Montes nascetur ridiculus mus mauris vitae ultricies. Nunc aliquet bibendum enim facilisis gravida neque convallis. Sit amet mauris commodo quis imperdiet massa.</p><p>Vitae aliquet nec ullamcorper sit amet risus nullam. Risus sed vulputate odio ut enim blandit. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Mauris sit amet massa vitae. Mi proin sed libero enim sed faucibus. Massa tempor nec feugiat nisl pretium fusce id velit. Vitae nunc sed velit dignissim sodales ut. Dui faucibus in ornare quam. Id neque aliquam vestibulum morbi. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet. Egestas maecenas pharetra convallis posuere. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Velit scelerisque in dictum non consectetur a erat nam</p>",
+  "modules": [
+    {
+      "type": "file",
+      "id": "M0",
+      "name": "Modul 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Risus sed vulputate odio ut. Lobortis elementum nibh tellus molestie nunc non. Et malesuada fames ac turpis egestas integer eget aliquet."
+    }
+  ],
+  "results": {
+    "points": 8,
+    "commentThreadId": 2,
+    "corrector": {
+      "name": "Jakub Šťastný"
+    }
+  }
+}

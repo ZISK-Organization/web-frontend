@@ -1,0 +1,52 @@
+{
+  "id": 12,
+  "posts": [
+    {
+      "id": 10,
+      "author": {
+        "name": "Petr Novotný"
+      },
+      "date": "2021-07-31T08:00:00",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Risus sed vulputate odio ut.",
+      "children": [
+        {
+          "id": 13,
+          "author": {
+            "name": "Jan Okurek"
+          },
+          "date": "2021-07-31T08:00:00",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Risus sed vulputate odio ut.",
+          "children": [
+            {
+              "id": 11,
+              "author": {
+                "name": "Petr Novotný"
+              },
+              "date": "2021-07-31T08:00:00",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Risus sed vulputate odio ut.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "author": {
+            "name": "Franta Šumák"
+          },
+          "date": "2021-07-31T08:00:00",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Risus sed vulputate odio ut.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "author": {
+        "name": "Pavla Zelená"
+      },
+      "date": "2021-07-31T08:00:00",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim. Risus sed vulputate odio ut.",
+      "children": []
+    }
+  ]
+}

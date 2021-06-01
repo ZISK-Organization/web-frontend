@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("lg")]: {
         fontSize: 24,
       },
+      position: "relative",
     },
   })
 );

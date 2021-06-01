@@ -1,0 +1,68 @@
+[
+  {
+    "categoryId": "ALG",
+    "categoryName": "Algoritmy a matematika",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/algo.jpg"
+  },
+  {
+    "categoryId": "THE",
+    "categoryName": "Teoretická informatika",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/others.jpg"
+  },
+  {
+    "categoryId": "AI",
+    "categoryName": "Umělá inteligence a optimalizační problémy",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/AI.jpg"
+  },
+  {
+    "categoryId": "NET",
+    "categoryName": "Sítě a bezpečnost",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/networks.jpg"
+  },
+  {
+    "categoryId": "DB",
+    "categoryName": "Databáze a big data",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/databases.png"
+  },
+  {
+    "categoryId": "OS",
+    "categoryName": "Operační systémy a nízkoúrovňové programování",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/os.jpg"
+  },
+  {
+    "categoryId": "HW",
+    "categoryName": "Hardware a elektortechnika",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/hardware.webp"
+  },
+  {
+    "categoryId": "BIO",
+    "categoryName": "Bioinformatika",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/bioinformatics.jpeg"
+  },
+  {
+    "categoryId": "QUA",
+    "categoryName": "Kvantové počítače",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/quantumComputing.jpg"
+  },
+  {
+    "categoryId": "SWE",
+    "categoryName": "Softwareové inženýrství",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/swEng.jpg"
+  },
+  {
+    "categoryId": "OTH",
+    "categoryName": "Ostatní",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "imagePath": "/img/Tutorials/others.jpg"
+  }
+]

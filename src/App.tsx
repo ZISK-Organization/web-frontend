@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import Error404 from "./Errors/Error404";
 import ScrollToTop from "./Layout/ScrollToTop";
 import About from "./Pages/About/About";
@@ -8,7 +8,14 @@ import Home from "./Pages/Home/Home";
 import Memes from "./Pages/Memes/Memes";
 import Results from "./Pages/Results/Results";
 import Tasks from "./Pages/Tasks/Tasks";
+import Task from "./Pages/Task/Task";
 import Tutorials from "./Pages/Tutorials/Tutorials";
+
+interface IdParams {
+  id: string;
+}
+
+interface TaskProps extends RouteComponentProps<IdParams> {}
 
 export default function App() {
   return (
@@ -16,6 +23,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Tasks" exact component={Tasks} />
+        <Route path="/Tasks/:id" exact render={({ match }: TaskProps) => <Task taskId={parseInt(match.params.id)} />} />
         <Route path="/Tutorials" exact component={Tutorials} />
         <Route path="/Memes" exact component={Memes} />
         <Route path="/Results" exact component={Results} />

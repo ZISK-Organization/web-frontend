@@ -1,0 +1,68 @@
+[
+  {
+    "userName": "Jarmila Váňová",
+    "userId": 0,
+    "points": 89,
+    "tasksSolved": 21
+  },
+  {
+    "userName": "Blanka Velecká",
+    "userId": 1,
+    "points": 84,
+    "tasksSolved": 20
+  },
+  {
+    "userName": "Zdenka Hluchá",
+    "userId": 2,
+    "points": 84,
+    "tasksSolved": 23
+  },
+  {
+    "userName": "Josef Havelka",
+    "userId": 3,
+    "points": 81,
+    "tasksSolved": 21
+  },
+  {
+    "userName": "Jana Kučerová",
+    "userId": 4,
+    "points": 65,
+    "tasksSolved": 24
+  },
+  {
+    "userName": "Martin Attia",
+    "userId": 5,
+    "points": 61,
+    "tasksSolved": 24
+  },
+  {
+    "userName": "Milan Nápravník",
+    "userId": 6,
+    "points": 58,
+    "tasksSolved": 21
+  },
+  {
+    "userName": "Jan Volena",
+    "userId": 7,
+    "points": 46,
+    "tasksSolved": 23
+  },
+  {
+    "userName": "Věra Lomická",
+    "userId": 8,
+    "points": 32,
+    "tasksSolved": 25
+  },
+  {
+    "userName": "Alex Müller",
+    "userId": 9,
+    "points": 11,
+    "tasksSolved": 21
+  },
+  {
+    "userName": "Renata Říčanská",
+    "userId": 10,
+    "points": 0,
+    "tasksSolved": 20
+  }
+]

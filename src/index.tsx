@@ -10,6 +10,15 @@ import * as serviceWorker from "./serviceWorker";
 
 const defaultTheme = createMuiTheme({
   palette: { primary: { main: "#b71c1c", contrastText: "#ffffff" }, secondary: { main: "#b3b3b3", contrastText: "#424242" } },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1480,
+    },
+  },
 });
 const { breakpoints } = defaultTheme;
 
