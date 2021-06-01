@@ -6,6 +6,7 @@ import App from "./App";
 import "./index.css";
 import { LayoutProvider } from "./Layout/LayoutContext";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
 // import { Auth0Provider } from "@auth0/auth0-react";
 
 const defaultTheme = createMuiTheme({
@@ -85,3 +86,4 @@ ReactDOM.render(
 );
 
 serviceWorkerRegistration.register();
+reportWebVitals();
