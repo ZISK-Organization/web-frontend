@@ -1,6 +1,5 @@
 import React from "react";
 import { createStyles, makeStyles, Theme, LinearProgress, Typography } from "@material-ui/core";
-import DiscussionThread from "../../Components/DiscussionThread";
 import DiscussionPost from "../../Components/DiscussionPost";
 import thread from "../../Data/Mock/DiscussionThread.json";
 
