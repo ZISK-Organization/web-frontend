@@ -1,0 +1,37 @@
+[
+  {
+    "motto": "Some überawesome motto",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": "/img/Team/StastnyJakub.png",
+    "name": "Jakub Šťastný",
+    "email": "xstastnyj@gmail.com",
+    "github": "https://github.com/StastnyJ",
+    "birthDate": "2000-02-31"
+  },
+  {
+    "motto": "Some überawesome motto",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": "/img/Team/KramarBor.jpg",
+    "name": "Dalibor Kramář",
+    "email": "dalik.kramar@gmail.com",
+    "github": "https://github.com/dalikkk",
+    "birthDate": "1999-05-03"
+  },
+  {
+    "motto": "Some überawesome motto",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": "/img/Team/GlozarTomas.jpg",
+    "name": "Tomáš Glozar",
+    "email": "tglozar@gmail.com",
+    "github": "https://github.com/lenticularis39",
+    "birthDate": "2000-02-31"
+  },
+  {
+    "motto": "Some überawesome motto",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": "/img/Team/MatulovaKaterina.jpg",
+    "name": "Kateřina Matulová",
+    "email": "",
+    "birthDate": "2001-09-01"
+  }
+]

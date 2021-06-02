@@ -1,0 +1,26 @@
+[
+  {
+    "title": "1. Série úloh zveřejněna",
+    "date": "2021-07-31T08:00:00",
+    "shortText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim.",
+    "image": "/img/News/serie1.jpg"
+  },
+  {
+    "title": "Nová verze webu spuštěna",
+    "date": "2021-07-31T08:00:00",
+    "shortText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim.",
+    "image": "/img/News/web.png"
+  },
+  {
+    "title": "2. Série úloh zveřejněna",
+    "date": "2021-07-31T08:00:00",
+    "shortText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim.",
+    "image": "/img/News/serie2.jpg"
+  },
+  {
+    "title": "Chystáme überawesome soustředění",
+    "date": "2021-07-31T08:00:00",
+    "shortText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus egestas sed sed risus pretium quam vulputate dignissim.",
+    "image": "/img/News/ueberawesome.jpeg"
+  }
+]

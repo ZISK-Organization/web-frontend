@@ -4,11 +4,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   overflow-y: overlay;
-  height: 100vh;
-}
-
-.whitePlaceholder::placeholder {
-  color: white;
 }
 
 html[data-scroll="88"] .navbarTop {
