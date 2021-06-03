@@ -53,7 +53,7 @@
         "deadline": "2021-07-31T08:00:00",
         "points": 4,
         "type": ["THE"],
-        "categories": ["ALG"],
+        "categories": ["AI"],
         "status": "none",
         "difficulty": 1
       },
@@ -63,7 +63,7 @@
         "deadline": "2021-07-31T08:00:00",
         "points": 2,
         "type": ["PRA"],
-        "categories": ["ALG"],
+        "categories": ["QUA", "NET"],
         "status": "handed",
         "difficulty": 2
       },
@@ -83,7 +83,7 @@
         "deadline": "2021-07-31T08:00:00",
         "points": 7,
         "type": ["PRO", "THE"],
-        "categories": ["ALG"],
+        "categories": ["HW", "DB", "BIO"],
         "status": "corrected",
         "difficulty": 4
       }
