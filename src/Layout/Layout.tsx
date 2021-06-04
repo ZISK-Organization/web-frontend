@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createStyles, Hidden, makeStyles, Theme } from "@material-ui/core";
 import Header from "./Header";
 import MobileNavbar from "./SwipeableNavbar";
+import Footer from "./Footer";
 // import { useAuth0 } from "@auth0/auth0-react";
 // import { profileService } from "../Utils/ApiService";
 
@@ -81,6 +82,7 @@ export default function Layout(props: { children?: React.ReactNode }) {
         />
       </Hidden>
       {props.children}
+      <Footer hidden={false} />
     </div>
   );
 }
