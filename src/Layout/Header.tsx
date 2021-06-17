@@ -1,21 +1,10 @@
 import React from "react";
-import {
-  AppBar,
-  // Avatar,
-  // Box,
-  createStyles,
-  Hidden,
-  IconButton,
-  makeStyles,
-  Theme,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, createStyles, Hidden, IconButton, makeStyles, Theme, Typography } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-import MenuIcon from "@material-ui/icons/Menu";
-// import { ExitToApp, Person } from "@material-ui/icons";
+import { Menu as MenuIcon } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -85,21 +74,27 @@ const useStyles = makeStyles((theme: Theme) =>
     pointer: {
       cursor: "pointer",
     },
+    avatar: {
+      height: 44,
+      width: 44,
+      borderRadius: "50%",
+    },
   })
 );
 
 interface IProps {
   openMobileNavbar: () => void;
-  // loginWithRedirect: () => void;
-  // logout: (info: { returnTo: string }) => void;
-  // user: {
-  //   picture: string;
-  //   name: string;
-  // };
-  // isAuthenticated: boolean;
+  loginWithRedirect: () => void;
+  logout: (info: { returnTo: string }) => void;
+  user?: {
+    picture?: string;
+    name?: string;
+    email?: string;
+  };
+  isAuthenticated: boolean;
 }
 
-export default function Header({ openMobileNavbar /*isAuthenticated, loginWithRedirect, user, logout*/ }: IProps) {
+export default function Header({ openMobileNavbar, isAuthenticated, loginWithRedirect, user, logout }: IProps) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
@@ -123,57 +118,25 @@ export default function Header({ openMobileNavbar /*isAuthenticated, loginWithRe
         </Hidden>
         <Hidden xsDown>
           <>
-            {/* {isAuthenticated ? (
-              <>
-                <Avatar
-                  src={user.picture}
-                  className={classes.loginButton}
-                  style={{ cursor: "pointer" }}
-                  onClick={(e) => setAnchorEl(e.currentTarget)}
-                />
-                <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}>
-                  <Box width="100%" className={classes.menuProfileBox}>
-                    <Avatar
-                      src={user.picture}
-                      alt={user.name}
-                      style={{ marginLeft: "40%" }}
-                      onClick={(e) => setAnchorEl(e.currentTarget)}
-                    />
-                    <br />
-                    <Typography variant="body1">{user.name}</Typography>
-                  </Box>
-                  <hr />
-                  <MenuItem
-                    onClick={() => {
-                      setAnchorEl(null);
-                      history.push("/Profile");
-                    }}
-                  >
-                    <Person />
-                    &nbsp;&nbsp;&nbsp;&nbsp;{T.Menu.Profile}
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => {
-                      setAnchorEl(null);
-                      logout({ returnTo: window.location.origin });
-                    }}
-                  >
-                    <ExitToApp />
-                    &nbsp;&nbsp;&nbsp;&nbsp;{T.Menu.Logout}
-                  </MenuItem>
-                </Menu>
-              </>
-            ) : ( */}
-            <div className={classes.loginButton}>
-              <span /*onClick={() => loginWithRedirect()}*/>
-                <FontAwesomeIcon color="white" icon={faUser} />
+            {isAuthenticated ? (
+              <div
+                className={classes.loginButton}
+                style={{ top: 8 }}
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                <img className={classes.avatar} alt={user?.name || user?.email} src={user?.picture} />
                 <br />
-                <Typography variant="button">Přihlásit se</Typography>
-              </span>
-            </div>
-            {/* <Button className={classes.loginButton} onClick={loginWithRedirect}>Přihlásit se</Button> */}
-            {/* )} */}
+                <Typography variant="button">{user?.name || user?.email}</Typography>
+              </div>
+            ) : (
+              <div className={classes.loginButton} onClick={loginWithRedirect}>
+                <span>
+                  <FontAwesomeIcon color="white" icon={faUser} />
+                  <br />
+                  <Typography variant="button">Přihlásit se</Typography>
+                </span>
+              </div>
+            )}
           </>
         </Hidden>
       </AppBar>

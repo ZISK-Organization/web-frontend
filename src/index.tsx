@@ -7,7 +7,7 @@ import "./index.css";
 import { LayoutProvider } from "./Layout/LayoutContext";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-// import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const defaultTheme = createMuiTheme({
   palette: { primary: { main: "#b71c1c", contrastText: "#ffffff" }, secondary: { main: "#b3b3b3", contrastText: "#424242" } },
@@ -68,20 +68,20 @@ const theme = {
 };
 
 ReactDOM.render(
-  // <Auth0Provider
-  //   domain="dev-df6cho9g.eu.auth0.com"
-  //   clientId="FptmnH13aKxwtEFWgNiRP2R5YXxSgqr6"
-  //   redirectUri={`${window.location.origin}/Profile`}
-  //   cacheLocation="localstorage"
-  // >
-  <MuiThemeProvider theme={theme}>
-    <BrowserRouter>
-      <LayoutProvider>
-        <App />
-      </LayoutProvider>
-    </BrowserRouter>
-  </MuiThemeProvider>,
-  // </Auth0Provider>
+  <Auth0Provider
+    domain="dev-da966h82.eu.auth0.com"
+    clientId="ca54COMWeajsVpyS4jXEfkYKYR2NRc08"
+    redirectUri={`${window.location.origin}/loginRedirect`}
+    cacheLocation="localstorage"
+  >
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+        <LayoutProvider>
+          <App />
+        </LayoutProvider>
+      </BrowserRouter>
+    </MuiThemeProvider>
+  </Auth0Provider>,
   document.getElementById("root")
 );
 

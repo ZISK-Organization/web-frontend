@@ -3,7 +3,7 @@ import { createStyles, Hidden, makeStyles, Theme } from "@material-ui/core";
 import Header from "./Header";
 import MobileNavbar from "./SwipeableNavbar";
 import Footer from "./Footer";
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 // import { profileService } from "../Utils/ApiService";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function Layout(props: { children?: React.ReactNode }) {
-  // const { loginWithRedirect, user, isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
+  const { loginWithRedirect, user, isAuthenticated, logout /*, getAccessTokenSilently */ } = useAuth0();
   const classes = useStyles();
   const [navbarOpen, setNavbarOpen] = useState(false);
 
@@ -66,10 +66,10 @@ export default function Layout(props: { children?: React.ReactNode }) {
       <div style={{ flexGrow: 1 }}>
         <Header
           openMobileNavbar={() => setNavbarOpen(true)}
-          // isAuthenticated={isAuthenticated}
-          // loginWithRedirect={loginWithRedirect}
-          // user={user}
-          // logout={logout}
+          isAuthenticated={isAuthenticated}
+          loginWithRedirect={loginWithRedirect}
+          user={user}
+          logout={logout}
         />
       </div>
       <Hidden mdUp>
