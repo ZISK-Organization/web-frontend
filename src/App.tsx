@@ -23,7 +23,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Tasks" exact component={Tasks} />
-        <Route path="/Tasks/:id" exact render={({ match }: TaskProps) => <Task taskId={parseInt(match.params.id)} />} />
+        <Route path="/Tasks/:id" exact render={({ match }: TaskProps) => <Task taskId={match.params.id} />} />
         <Route path="/Tutorials" exact component={Tutorials} />
         <Route path="/Memes" exact component={Memes} />
         <Route path="/Results" exact component={Results} />

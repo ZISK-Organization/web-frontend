@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface IProps {
   maxPoints: number;
-  results: any;
+  results: number;
 }
 
 export default function Results({ maxPoints, results }: IProps) {
@@ -32,12 +32,12 @@ export default function Results({ maxPoints, results }: IProps) {
       <div className={classes.flex}>
         <LinearProgress
           className={classes.progress}
-          value={Math.min(100, (100 * results.points) / maxPoints)}
+          value={Math.min(100, (100 * results) / maxPoints)}
           color="primary"
           variant="determinate"
         />
         <Typography>
-          {results.points} / {maxPoints}
+          {results} / {maxPoints}
         </Typography>
       </div>
       <br />

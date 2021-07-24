@@ -106,16 +106,30 @@ function basicFetch(initReq: RequestInit, url: string, params?: { [index: string
     fetch(formatUrl(url, params), initReq)
       .then((res) => {
         if (res.ok) {
-          res
-            .json()
-            .then((result) => {
-              options?.success(result);
-              resolve(result);
-            })
-            .catch(() => {
-              options?.success(null);
-              resolve(null);
-            });
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.indexOf("application/json") !== -1) {
+            res
+              .json()
+              .then((result) => {
+                options?.success(result);
+                resolve(result);
+              })
+              .catch(() => {
+                options?.success(null);
+                resolve(null);
+              });
+          } else {
+            res
+              .text()
+              .then((result) => {
+                options?.success(result);
+                resolve(result);
+              })
+              .catch(() => {
+                options?.success(null);
+                resolve(null);
+              });
+          }
         } else {
           options?.error(res.statusText + " [" + res.status + "]");
           resolve(res.statusText + " [" + res.status + "]");
@@ -128,8 +142,8 @@ function basicFetch(initReq: RequestInit, url: string, params?: { [index: string
   });
 }
 
-const apiUrl = "";
+const apiUrl = "https://api.zisk.stastnyjakub.com/";
 
-const service = new ApiService(apiUrl + "service/");
+const tasksService = new ApiService(apiUrl + "tasks/");
 
-export { apiUrl, service };
+export { apiUrl, tasksService };
