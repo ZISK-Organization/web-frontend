@@ -10,6 +10,8 @@ import Results from "./Pages/Results/Results";
 import Tasks from "./Pages/Tasks/Tasks";
 import Task from "./Pages/Task/Task";
 import Tutorials from "./Pages/Tutorials/Tutorials";
+import LoginRedirect from "./Pages/Profile/LoginRedirect";
+import Profile from "./Pages/Profile/Profile";
 
 interface IdParams {
   id: string;
@@ -29,6 +31,9 @@ export default function App() {
         <Route path="/Results" exact component={Results} />
         <Route path="/About" exact component={About} />
         <Route path="/Discussion" exact component={Discussion} />
+        <Route path="/Profile" exact component={Profile} />
+
+        <Route path="/loginRedirect" exact component={LoginRedirect} />
         <Route component={Error404} />
       </Switch>
     </ScrollToTop>

@@ -142,8 +142,9 @@ function basicFetch(initReq: RequestInit, url: string, params?: { [index: string
   });
 }
 
-const apiUrl = "https://api.zisk.stastnyjakub.com/";
+const apiUrl = "https://api.zisk-go.com/";
 
 const tasksService = new ApiService(apiUrl + "tasks/");
+const profilesService = new ApiService(apiUrl + "profile/");
 
-export { apiUrl, tasksService };
+export { apiUrl, tasksService, profilesService };
