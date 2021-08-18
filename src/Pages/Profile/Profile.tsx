@@ -142,7 +142,7 @@ export default function Profile() {
                 <br />
                 <br />
                 <Grid container spacing={2}>
-                  <Grid xs>
+                  <Grid item xs>
                     <Button
                       color={profile.category === 1 ? "primary" : "secondary"}
                       onClick={() => setProfile({ ...profile, category: 1 })}
@@ -151,7 +151,7 @@ export default function Profile() {
                       Středoškoláci
                     </Button>
                   </Grid>
-                  <Grid xs>
+                  <Grid item xs>
                     <Button
                       color={profile.category === 2 ? "primary" : "secondary"}
                       onClick={() => setProfile({ ...profile, category: 2 })}
@@ -160,7 +160,7 @@ export default function Profile() {
                       Vysokoškoláci
                     </Button>
                   </Grid>
-                  <Grid xs>
+                  <Grid item xs>
                     <Button
                       color={profile.category === 3 ? "primary" : "secondary"}
                       onClick={() => setProfile({ ...profile, category: 3 })}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   createStyles,
   makeStyles,
@@ -19,8 +19,11 @@ import {
 import Rating from "@material-ui/lab/Rating";
 import { ExpandMore } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-import tasks from "../../Data/Mock/Tasks.json";
 import categories from "../../Data/TaskCategories.json";
+import { series } from "../../Types/taskTypes";
+import { useLayout } from "../../Layout/LayoutContext";
+import { tasksService } from "../../Utils/ApiService";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -45,6 +48,35 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Tasks() {
   const classes = useStyles();
   const history = useHistory();
+  const layout = useLayout();
+  const { isAuthenticated, user } = useAuth0();
+
+  //@ts-ignore
+  const isAdmin = isAuthenticated && user["https://zisk-go.com/roles"].includes("admin");
+
+  const [tasks, setTasks] = useState<series[]>([]);
+
+  useEffect(
+    () => {
+      layout.setIsLoading(true);
+      tasksService.get(
+        isAdmin ? "/admin/year" : "/year",
+        {},
+        {
+          success: (data: series[]) => {
+            setTasks(data);
+            layout.setIsLoading(false);
+          },
+          error: () => {
+            layout.error("Při načítání úloh došlo k chybě, zkuste to prosím později");
+            layout.setIsLoading(false);
+          },
+        }
+      );
+    },
+    //eslint-disable-next-line
+    [isAdmin]
+  );
 
   return (
     <Container maxWidth="xl">
@@ -52,11 +84,11 @@ export default function Tasks() {
       <br />
       <Grid container direction="row-reverse">
         <Grid item lg={9} xs={12}>
-          {tasks.map((series, i) => (
-            <React.Fragment key={i}>
-              <Accordion defaultExpanded={!series.closed} style={{ borderRadius: 8 }}>
+          {tasks.map((series) => (
+            <React.Fragment key={series.seriesNumber}>
+              <Accordion defaultExpanded={series.seriesNumber === tasks.length} style={{ borderRadius: 8 }}>
                 <AccordionSummary className={classes.seriesHeader} expandIcon={<ExpandMore />}>
-                  <Typography>Sére {i + 1}</Typography>
+                  <Typography>Série {series.seriesNumber}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Grid container spacing={3}>
@@ -77,7 +109,7 @@ export default function Tasks() {
                               <br />
                               <br />
                               <div className={classes.iconsContainer}>
-                                {task.categories.map((cat) => (
+                                {task.category.map((cat) => (
                                   <Tooltip title={categories.filter((c) => c.id === cat)[0].name} key={cat}>
                                     <Avatar sizes="small" src={categories.filter((c) => c.id === cat)[0].icon} />
                                   </Tooltip>

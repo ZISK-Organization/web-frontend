@@ -1,4 +1,10 @@
+export interface series {
+  seriesNumber: number;
+  tasks: taskMeta[];
+}
+
 export interface taskMeta {
+  id: string;
   name: string;
   type: string;
   category: string[];

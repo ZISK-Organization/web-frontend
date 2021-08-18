@@ -94,7 +94,7 @@ interface IProps {
   isAuthenticated: boolean;
 }
 
-export default function Header({ openMobileNavbar, isAuthenticated, loginWithRedirect, user, logout }: IProps) {
+export default function Header({ openMobileNavbar, isAuthenticated, loginWithRedirect, user }: IProps) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
@@ -119,11 +119,7 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
         <Hidden xsDown>
           <>
             {isAuthenticated ? (
-              <div
-                className={classes.loginButton}
-                style={{ top: 8 }}
-                onClick={() => logout({ returnTo: window.location.origin })}
-              >
+              <div className={classes.loginButton} style={{ top: 8 }} onClick={() => history.push("/Profile")}>
                 <img className={classes.avatar} alt={user?.name || user?.email} src={user?.picture} />
                 <br />
                 <Typography variant="button">{user?.name || user?.email}</Typography>
