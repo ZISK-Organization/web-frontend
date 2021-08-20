@@ -63,7 +63,7 @@ export default function Assignment({ taskId, modules }: IProps) {
       />
       <br />
       {Array.from(new Array(modules)).map((_, i) => (
-        <Module taskId={taskId} moduleNumber={i} />
+        <Module key={i} taskId={taskId} moduleNumber={i} />
       ))}
     </>
   );

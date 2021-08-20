@@ -1,3 +1,5 @@
+export const toStringDigits = (x: number, digits: number) => ("0".repeat(digits - 1) + x).slice(-1 * digits);
+
 export const scrollToRefObject = (ref: any) => window.scrollTo(0, ref.current.offsetTop); //TODO ref type
 
 export const round = (x: number, dec: number) => Math.round(x * Math.pow(10, dec)) / Math.pow(10, dec);

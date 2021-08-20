@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Profile() {
   const classes = useStyles();
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, user, logout } = useAuth0();
 
   const [profile, setProfile] = useState<User | undefined>();
   const layout = useLayout();
@@ -256,6 +256,9 @@ export default function Profile() {
               style={{ float: "right" }}
             >
               Uložit profil
+            </Button>
+            <Button onClick={() => logout({ returnTo: window.location.origin })} style={{ float: "right", marginRight: 12 }}>
+              Odhlásit se
             </Button>
           </Grid>
         </Grid>

@@ -146,5 +146,6 @@ const apiUrl = "https://api.zisk-go.com/";
 
 const tasksService = new ApiService(apiUrl + "tasks/");
 const profilesService = new ApiService(apiUrl + "profile/");
+const submissionsService = new ApiService(apiUrl + "submissions/");
 
-export { apiUrl, tasksService, profilesService };
+export { apiUrl, tasksService, profilesService, submissionsService };
