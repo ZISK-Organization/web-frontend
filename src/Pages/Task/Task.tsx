@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Container, Typography, Tabs, Tab, Avatar } from "@material-ui/core";
-import thread from "../../Data/Mock/DiscussionThread.json";
 import DiscussionThread from "../../Components/DiscussionThread";
 import Results from "./Results";
 import { taskMeta } from "../../Types/taskTypes";
 import { useLayout } from "../../Layout/LayoutContext";
-import { profilesService, tasksService } from "../../Utils/ApiService";
+import { discussionService, profilesService, tasksService } from "../../Utils/ApiService";
 import Assignment from "./Assignment";
 import Solution from "./Solution";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "../../Types/profiles";
 import Flex from "../../Components/Flex";
+import { Thread } from "../../Types/discussion";
 
 interface IProps {
   taskId: string;
@@ -20,6 +20,7 @@ export default function Task({ taskId }: IProps) {
   const [tab, setTab] = useState(0);
   const [task, setTask] = useState<taskMeta | undefined>(undefined);
   const [author, setAuthor] = useState<User | undefined>();
+  const [discussion, setDiscussion] = useState<Thread | undefined>();
   const layout = useLayout();
 
   const { isAuthenticated, user } = useAuth0();
@@ -55,6 +56,22 @@ export default function Task({ taskId }: IProps) {
     );
     // eslint-disable-next-line
   }, [taskId]);
+
+  useEffect(() => {
+    discussionService.get(
+      "/thread",
+      {
+        channel: taskId,
+        channelType: "task",
+      },
+      {
+        success: setDiscussion,
+        error: () => {},
+      }
+    );
+  }, [taskId]);
+
+  console.log(discussion);
 
   return (
     (task && (isAdmin || task.published) && (
@@ -107,9 +124,11 @@ export default function Task({ taskId }: IProps) {
         {tab === 0 ? (
           <Assignment deadline={new Date(task.deadline)} taskId={taskId} modules={task.modules} />
         ) : tab === 1 ? (
-          <>
-            <DiscussionThread thread={thread} />
-          </>
+          discussion === undefined ? (
+            <Typography>Načítám data</Typography>
+          ) : (
+            <DiscussionThread thread={discussion} setThread={setDiscussion} />
+          )
         ) : tab === 2 ? (
           <>
             <Results maxPoints={task.maxPoints} taskId={taskId} />

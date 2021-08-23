@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { createStyles, makeStyles, Theme, LinearProgress, Typography } from "@material-ui/core";
-import DiscussionPost from "../../Components/DiscussionPost";
-import thread from "../../Data/Mock/DiscussionThread.json";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useLayout } from "../../Layout/LayoutContext";
 import { submissionsService } from "../../Utils/ApiService";
+import DiscussionThread from "../../Components/DiscussionThread";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,7 +68,15 @@ export default function Results({ maxPoints, taskId }: IProps) {
       <br />
       <br />
 
-      <DiscussionPost post={thread.posts[0]} />
+      <DiscussionThread
+        thread={{
+          channel: "",
+          id: 0,
+          channelType: "",
+          children: [],
+        }}
+        setThread={() => {}}
+      />
     </>
   );
 }

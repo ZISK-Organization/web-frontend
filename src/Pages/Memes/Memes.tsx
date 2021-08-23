@@ -70,7 +70,7 @@ function Meme({ meme }: { meme: any }) {
             <br />
             <br />
             {post.children.map((ch: any) => (
-              <DiscussionPost post={ch} key={ch.id} />
+              <DiscussionPost post={ch} key={ch.id} setPost={() => {}} />
             ))}
           </>
         )}
