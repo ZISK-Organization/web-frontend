@@ -7,7 +7,7 @@ import FileModule from "./FileModule";
 import TextModule from "./TextModule";
 import { toStringDigits } from "../../../Utils/Common";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Alert } from "@material-ui/lab";
+import { Alert, Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,9 +21,10 @@ const useStyles = makeStyles((theme: Theme) =>
 interface IProps {
   taskId: string;
   moduleNumber: number;
+  deadline: Date;
 }
 
-export default function Module({ taskId, moduleNumber }: IProps) {
+export default function Module({ taskId, moduleNumber, deadline }: IProps) {
   const classes = useStyles();
   const [module, setModule] = useState<commonModuleMeta | undefined>();
   const { isAuthenticated, user } = useAuth0();
@@ -53,22 +54,26 @@ export default function Module({ taskId, moduleNumber }: IProps) {
     moduleSection?: number,
     moduleDetails?: string
   ) => {
-    user &&
-      submissionsService.post(
-        moduleSection === undefined ? "submitModule" : "submitModuleSection",
-        {
-          moduleId: moduleId,
-          moduleDetails: moduleDetails,
-          userId: user.sub,
-          moduleType: moduleType,
-          moduleSection: moduleSection,
-        },
-        submission,
-        {
-          success: callback,
-          error: () => layout.error("Při ukládání došlo k chybě, zkuste to prosím později."),
-        }
-      );
+    if (deadline.getTime() < new Date().getTime()) {
+      layout.warning("Není možné odevzdávat úlohy po deadline úlohy");
+    } else {
+      user &&
+        submissionsService.post(
+          moduleSection === undefined ? "submitModule" : "submitModuleSection",
+          {
+            moduleId: moduleId,
+            moduleDetails: moduleDetails,
+            userId: user.sub,
+            moduleType: moduleType,
+            moduleSection: moduleSection,
+          },
+          submission,
+          {
+            success: callback,
+            error: () => layout.error("Při ukládání došlo k chybě, zkuste to prosím později."),
+          }
+        );
+    }
   };
 
   return (
@@ -85,7 +90,7 @@ export default function Module({ taskId, moduleNumber }: IProps) {
               {module.type === "text" ? (
                 <TextModule userId={user.sub} moduleId={moduleId} submit={submit} module={module as textModuleMeta} />
               ) : module.type === "file" ? (
-                <FileModule module={module as fileModuleMeta} />
+                <FileModule userId={user.sub} moduleId={moduleId} submit={submit} module={module as fileModuleMeta} />
               ) : (
                 <></>
               )}
@@ -94,7 +99,19 @@ export default function Module({ taskId, moduleNumber }: IProps) {
           <br />
           <br />
         </>
-      )) || <>TODO: some fancy loading</>)) || (
+      )) || (
+        <>
+          <Card>
+            <CardHeader className={classes.header} title="Načítám modul" />
+            <CardContent>
+              <Skeleton />
+              <Skeleton height={256} />
+            </CardContent>
+          </Card>
+          <br />
+          <br />
+        </>
+      ))) || (
       <>
         <Alert severity="warning">Pro odevzdávání řešení se musíš přihlásit</Alert>
         <br />

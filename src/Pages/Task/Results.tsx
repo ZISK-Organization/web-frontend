@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createStyles, makeStyles, Theme, LinearProgress, Typography } from "@material-ui/core";
 import DiscussionPost from "../../Components/DiscussionPost";
 import thread from "../../Data/Mock/DiscussionThread.json";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useLayout } from "../../Layout/LayoutContext";
+import { submissionsService } from "../../Utils/ApiService";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,11 +21,31 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface IProps {
   maxPoints: number;
-  results: number;
+  taskId: string;
 }
 
-export default function Results({ maxPoints, results }: IProps) {
+export default function Results({ maxPoints, taskId }: IProps) {
   const classes = useStyles();
+  const [results, setResults] = useState(0);
+  const { isAuthenticated, user } = useAuth0();
+
+  const layout = useLayout();
+
+  useEffect(() => {
+    isAuthenticated &&
+      submissionsService.get(
+        "points",
+        {
+          userId: user?.sub,
+          taskId: taskId,
+        },
+        {
+          success: setResults,
+          error: () => layout.error("Při načítání výsledků došlo k chybě"),
+        }
+      );
+    // eslint-disable-next-line
+  }, [isAuthenticated, taskId]);
 
   return (
     <>

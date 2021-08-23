@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { createStyles, makeStyles, Theme, Container, Grid, TextField, Button, Slider, Typography } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "../../Types/profiles";
-import { profilesService } from "../../Utils/ApiService";
+import { apiUrl, profilesService, tasksService } from "../../Utils/ApiService";
 import { useLayout } from "../../Layout/LayoutContext";
+import { openFileContext } from "../../Utils/Common";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -85,7 +86,29 @@ export default function Profile() {
             <img src={profile.image} alt="" className={classes.profile} />
             <br />
             <br />
-            <Button color="primary" fullWidth>
+            <Button
+              color="primary"
+              fullWidth
+              onClick={() =>
+                openFileContext(
+                  (file: File[]) =>
+                    file.length > 0 &&
+                    tasksService.uploadFile(
+                      "/files/uploadProfileImage",
+                      file[0],
+                      { userId: user?.sub },
+                      {
+                        success: (fileName) =>
+                          setProfile({
+                            ...profile,
+                            image: `${apiUrl}tasks/files/getProfileImage?fileName=${encodeURIComponent(fileName)}`,
+                          }),
+                        error: () => layout.error("Při nahrávání došlo k chybě"),
+                      }
+                    )
+                )
+              }
+            >
               Změnit obrázek
             </Button>
             <br />

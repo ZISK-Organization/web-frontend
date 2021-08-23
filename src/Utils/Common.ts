@@ -9,3 +9,12 @@ export const cutString = (str: string, maxLength: number) =>
 
 export const separateThousands = (x: string | number | undefined) =>
   x === undefined ? "" : x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+export const openFileContext = (onSelect: (file: File[]) => void) => {
+  const fileSelector = document.createElement("input");
+  fileSelector.setAttribute("type", "file");
+  fileSelector.setAttribute("multiple", "multiple");
+  // @ts-ignore
+  fileSelector.onchange = (e) => onSelect(e.currentTarget?.files);
+  fileSelector.click();
+};
