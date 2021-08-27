@@ -113,7 +113,7 @@ export default function Memes() {
         channelType: "memes",
       },
       {
-        success: setMemes,
+        success: (mm: Thread) => setMemes({ ...mm, children: mm.children.reverse() }),
         error: () => layout.error("Při načítání memes došlo k chybě."),
       }
     );

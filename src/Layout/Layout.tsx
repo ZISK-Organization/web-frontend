@@ -4,6 +4,7 @@ import Header from "./Header";
 import MobileNavbar from "./SwipeableNavbar";
 import Footer from "./Footer";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Alert } from "@material-ui/lab";
 // import { profileService } from "../Utils/ApiService";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -81,6 +82,12 @@ export default function Layout(props: { children?: React.ReactNode }) {
           // user={user}
         />
       </Hidden>
+      <br />
+      <Alert style={{ width: "80%", marginLeft: "10%" }} severity="warning">
+        Stránky jsou stále ve vývoji a testování. Postupem času budou přibývat nové funkce. Pokud narazíte na jakýkoliv problém,
+        prosím kontaktujte organizátory.
+      </Alert>
+      <br />
       {props.children}
       <Footer hidden={false} />
     </div>

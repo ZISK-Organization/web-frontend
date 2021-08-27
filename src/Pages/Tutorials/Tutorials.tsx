@@ -10,7 +10,7 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  LinearProgress,
+  // LinearProgress,
 } from "@material-ui/core";
 import categories from "../../Data/Tutorials/Categories.json";
 
@@ -57,7 +57,7 @@ export default function Tutorials() {
               </CardActionArea>
               <Grid container spacing={3} alignItems="center" className={classes.bottom}>
                 <Grid item xs={8}>
-                  <LinearProgress style={{ marginLeft: 16 }} variant="determinate" value={64} />
+                  {/* <LinearProgress style={{ marginLeft: 16 }} variant="determinate" value={64} /> */}
                 </Grid>
                 <Grid item xs={4}>
                   <Typography color="textSecondary">0 Tutoriálů</Typography>

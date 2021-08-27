@@ -1,37 +1,38 @@
-import React, { useState } from "react";
-import { Hidden, Container, useTheme, Tabs, Tab, Select, MenuItem } from "@material-ui/core";
-import MUIDataTable from "mui-datatables";
-import data from "../../Data/Mock/Results.json";
-import { round } from "../../Utils/Common";
-import useWindowDimensions from "../../Hooks/GetWindowDimensions";
+import React /*, { useState }*/ from "react";
+import { Container, Typography /*, useTheme , Hidden, Tabs, Tab, Select, MenuItem*/ } from "@material-ui/core";
+// import MUIDataTable from "mui-datatables";
+// import { round } from "../../Utils/Common";
+// import useWindowDimensions from "../../Hooks/GetWindowDimensions";
 
 export default function Results() {
-  const theme = useTheme();
-  const dims = useWindowDimensions();
+  // const theme = useTheme();
+  // const dims = useWindowDimensions();
 
-  const [tab, setTab] = useState(parseInt(localStorage.getItem("ResultsTab") || "0"));
+  // const [tab, setTab] = useState(parseInt(localStorage.getItem("ResultsTab") || "0"));
 
-  const changeTab = (newVal: number) => {
-    localStorage.setItem("ResultsTab", newVal.toString());
-    setTab(newVal);
-  };
+  // const changeTab = (newVal: number) => {
+  //   localStorage.setItem("ResultsTab", newVal.toString());
+  //   setTab(newVal);
+  // };
 
-  const isMobile = theme.breakpoints.width("sm") >= dims.width;
+  // const isMobile = theme.breakpoints.width("sm") >= dims.width;
 
-  const columnDefinitions = [
-    { name: "order", label: "Pořadí" },
-    { name: "userName", label: "Jméno" },
-    { name: "points", label: "Body" },
-    { name: "tasksSolved", label: "Odevzdané úlohy", options: { display: !isMobile } },
-    { name: "avgPerTask", label: "Ø Bodů za úlohu", options: { display: !isMobile } },
-  ];
+  // const columnDefinitions = [
+  //   { name: "order", label: "Pořadí" },
+  //   { name: "userName", label: "Jméno" },
+  //   { name: "points", label: "Body" },
+  //   { name: "tasksSolved", label: "Odevzdané úlohy", options: { display: !isMobile } },
+  //   { name: "avgPerTask", label: "Ø Bodů za úlohu", options: { display: !isMobile } },
+  // ];
 
-  const tabNames = ["Středoškoláci", "Vysokoškoláci", "Ostatní", "Všichni"];
+  // const tabNames = ["Středoškoláci", "Vysokoškoláci", "Ostatní", "Všichni"];
 
   return (
     <Container maxWidth="xl">
       <br />
-      <Hidden xsDown>
+      <Typography>Výsledky budou zveřejněny po deadlinu první série.</Typography>
+      <div style={{ height: "calc(100vh - 412px)" }}></div>
+      {/* <Hidden xsDown>
         <Tabs value={tab} onChange={(_, newVal) => changeTab(newVal)} indicatorColor="primary" textColor="primary" centered>
           {tabNames.map((t) => (
             <Tab key={t} label={t} />
@@ -66,7 +67,7 @@ export default function Results() {
         }}
       />
       <br />
-      <br />
+      <br /> */}
     </Container>
   );
 }
