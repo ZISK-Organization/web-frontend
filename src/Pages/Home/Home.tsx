@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React /*, { useState }*/ from "react";
 import {
   createStyles,
   makeStyles,
@@ -6,17 +6,17 @@ import {
   Container,
   Typography,
   Grid,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  useTheme,
-  IconButton,
+  // useTheme,
+  // Card,
+  // CardActionArea,
+  // CardMedia,
+  // CardContent,
+  // IconButton,
 } from "@material-ui/core";
-import useWindowDimensions from "../../Hooks/GetWindowDimensions";
-import SwipeableViews from "react-swipeable-views";
-import { ChevronRight, ChevronLeft } from "@material-ui/icons";
-import news from "../../Data/Mock/News.json";
+// import useWindowDimensions from "../../Hooks/GetWindowDimensions";
+// import SwipeableViews from "react-swipeable-views";
+// import { ChevronRight, ChevronLeft } from "@material-ui/icons";
+// import news from "../../Data/Mock/News.json";
 import team from "../../Data/Team.json";
 import TeamMemberCard from "./TeamMemberCard";
 
@@ -50,12 +50,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Home() {
   const classes = useStyles();
-  const theme = useTheme();
-  const [newsPage, setNewsPage] = useState(0);
-  const { width } = useWindowDimensions();
+  // const theme = useTheme();
+  // const [newsPage, setNewsPage] = useState(0);
+  // const { width } = useWindowDimensions();
 
-  const newsPerPage = width <= theme.breakpoints.width("md") ? 1 : width <= theme.breakpoints.width("lg") ? 2 : 3;
-  const newsPages = Math.ceil(news.length / newsPerPage);
+  // const newsPerPage = width <= theme.breakpoints.width("md") ? 1 : width <= theme.breakpoints.width("lg") ? 2 : 3;
+  // const newsPages = Math.ceil(news.length / newsPerPage);
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function Home() {
       </Container>
       <br />
       <br />
-      <div className={classes.actualitiesContainer}>
+      {/* <div className={classes.actualitiesContainer}>
         <Container maxWidth="xl">
           <br />
           <Typography variant="h4" align="center">
@@ -94,8 +94,8 @@ export default function Home() {
                     .slice()
                     .reverse()
                     .slice(i * newsPerPage, Math.min(news.length, (i + 1) * newsPerPage))
-                    .map((n) => (
-                      <Grid item xs={12} md={6} lg={4} key={n.title}>
+                    .map((n, i) => (
+                      <Grid item xs={12} md={6} lg={4} key={i}>
                         <Card className={classes.newsCard}>
                           <CardActionArea>
                             <CardMedia image={n.image} className={classes.newsImage} />
@@ -128,6 +128,7 @@ export default function Home() {
           </div>
         </Container>
       </div>
+     */}
       <br />
       <br />
       <br />
