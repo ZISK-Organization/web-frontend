@@ -71,8 +71,6 @@ export default function Task({ taskId }: IProps) {
     );
   }, [taskId]);
 
-  console.log(discussion);
-
   return (
     (task && (isAdmin || task.published) && (
       <Container maxWidth="xl">

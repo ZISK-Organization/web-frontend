@@ -14,6 +14,10 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import { DropzoneArea } from "material-ui-dropzone";
+import { Post } from "../../Types/discussion";
+import { discussionService, tasksService } from "../../Utils/ApiService";
+import { useLayout } from "../../Layout/LayoutContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,11 +36,43 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function UploadMemeModal() {
+interface IProps {
+  onSave: (meme: Post) => void;
+  threadId: number;
+}
+
+export default function UploadMemeModal({ onSave, threadId }: IProps) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [memeFileName, setMemeFileName] = useState("");
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [memeDescription, setMemeDescription] = useState("");
+  const layout = useLayout();
 
-  const isValid = true;
+  const isValid = memeFileName.length > 0;
+
+  const { isAuthenticated, user } = useAuth0();
+
+  const save = () => {
+    if (isAuthenticated || isAnonymous) {
+      const p = {
+        id: null,
+        author: isAnonymous ? null : user?.sub,
+        content: memeDescription,
+        details: `https://api.zisk-go.com/tasks/files/getMeme?fileName=${memeFileName}`,
+        creationDate: null,
+        threadId: threadId,
+        children: [],
+      };
+      discussionService.post("post", {}, p, {
+        success: (id: number) => {
+          onSave({ ...p, id: id, creationDate: new Date() } as Post);
+          setOpen(false);
+        },
+        error: () => layout.error("Při odesílání příspěvku došlo k chybě"),
+      });
+    }
+  };
 
   return (
     <>
@@ -53,14 +89,35 @@ export default function UploadMemeModal() {
       <Dialog maxWidth="xl" fullWidth open={open} onClose={() => setOpen(false)} aria-labelledby="form-dialog-title">
         <DialogTitle>Nahrát MEME</DialogTitle>
         <DialogContent>
-          <TextField fullWidth label="Popis" multiline />
+          <TextField
+            value={memeDescription}
+            onChange={(e) => setMemeDescription(e.target.value)}
+            fullWidth
+            label="Popis"
+            multiline
+          />
           <br />
           <br />
           <Typography variant="h6">Meme</Typography>
-          <DropzoneArea filesLimit={1} maxFileSize={1067008} onChange={() => {}} />
+          <DropzoneArea
+            filesLimit={1}
+            maxFileSize={1067008}
+            onChange={(file: File[]) =>
+              file.length > 0 &&
+              tasksService.uploadFile(
+                "/files/uploadMeme",
+                file[0],
+                {},
+                {
+                  success: setMemeFileName,
+                  error: () => layout.error("Při nahrávání došlo k chybě"),
+                }
+              )
+            }
+          />
           <br />
           <div style={{ display: "flex", alignItems: "center" }}>
-            <Checkbox color="primary" />
+            <Checkbox checked={isAnonymous} onChange={() => setIsAnonymous(!isAnonymous)} color="primary" />
             <Typography> Nahrát anonymě</Typography>
           </div>
         </DialogContent>
@@ -68,7 +125,7 @@ export default function UploadMemeModal() {
           <Button onClick={() => setOpen(false)} color="secondary">
             Cancel
           </Button>
-          <Button onClick={() => {}} color="primary" disabled={!isValid}>
+          <Button onClick={save} color="primary" disabled={!isValid}>
             Nahrát
           </Button>
         </DialogActions>

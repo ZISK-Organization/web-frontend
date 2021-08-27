@@ -103,7 +103,7 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
     <>
       <AppBar className={classes.bar} position="relative">
         <span onClick={() => history.push("/")} className={classes.pointer}>
-          <img className={classes.logo} src={"/img/logo.png"} alt="Logo" />
+          <img className={classes.logo} src={"/img/logo.svg"} alt="Logo" />
           <Typography variant="h2" style={{ flexGrow: 1, fontFamily: "Lato, Roboto, Helvetica, Arial, sans-serif" }}>
             ZISK
             <Hidden smDown>

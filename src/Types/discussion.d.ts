@@ -12,6 +12,6 @@ export interface Post {
   details: string;
   creationDate: Date;
   threadId: number;
-  parentId: number;
+  parentId?: number;
   children: Post[];
 }

@@ -62,7 +62,7 @@ export default function Home() {
       <Container maxWidth="xl">
         <br />
         <br />
-        <img className={classes.logo} src="/img/logo_large.png" alt="logo" />
+        <img className={classes.logo} src="/img/logo_large.svg" alt="logo" />
         <br />
         <br />
         <Typography variant="h2" align="center">

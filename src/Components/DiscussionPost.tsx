@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createStyles, makeStyles, Theme, Avatar, Typography, Button } from "@material-ui/core";
 import { Post } from "../Types/discussion";
 import NewPostEditor from "./NewPostEditor";
+import { User } from "../Types/profiles";
+import { profilesService } from "../Utils/ApiService";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,6 +34,7 @@ export default function DiscussionPost({ post, setPost, offset }: IProps) {
   const [expanded, setExpanded] = useState(false);
   const [responseExpanded, setResponseExpanded] = useState(false);
   const [frameHeight, setFrameHeight] = useState("0px");
+  const [author, setAuthor] = useState<User | undefined>(undefined);
 
   const iframeReady = () => {
     let iframe = document.getElementById(`iframeTarget-${post.id}`) as HTMLIFrameElement;
@@ -41,15 +44,26 @@ export default function DiscussionPost({ post, setPost, offset }: IProps) {
       setFrameHeight((iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight) + " px");
   };
 
+  useEffect(() => {
+    profilesService.get(
+      "/",
+      { userId: post.author },
+      {
+        success: setAuthor,
+        error: console.log,
+      }
+    );
+  }, [post.author]);
+
   offset = offset ? offset : 0;
 
   return (
     <>
       <div className={classes.header}>
-        <Avatar>{post.author[0]}</Avatar>
+        <Avatar src={(author && author.image) || post.author[0]} />
         &nbsp;&nbsp;&nbsp;&nbsp;
         <span>
-          <Typography variant="h6">{post.author}</Typography>
+          <Typography variant="h6">{(author && `${author.name} ${author.surname}`) || post.author}</Typography>
           <Typography color="textSecondary">{new Date(post.creationDate).toLocaleString()}</Typography>
         </span>
       </div>
