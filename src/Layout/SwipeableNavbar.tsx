@@ -1,5 +1,5 @@
 import React from "react";
-import { SwipeableDrawer, List, ListItem, ListItemIcon, ListItemText /*Avatar, Dialog*/ } from "@material-ui/core";
+import { SwipeableDrawer, List, ListItem, ListItemIcon, ListItemText /*Avatar, Dialog*/, Avatar } from "@material-ui/core";
 import { Forum, Person, AssignmentTurnedIn, MenuBook, Image, FormatListNumbered, Info } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -18,15 +18,15 @@ const useStyles = makeStyles({
 interface IProps {
   open: boolean;
   setOpen: (open: boolean) => void;
-  // loginWithRedirect: () => void;
-  // user: {
-  //   picture: string;
-  //   name: string;
-  // };
-  // isAuthenticated: boolean;
+  loginWithRedirect: () => void;
+  user?: {
+    picture?: string;
+    name?: string;
+  };
+  isAuthenticated: boolean;
 }
 
-export default function RightDrawer({ open, setOpen /*isAuthenticated, loginWithRedirect, user*/ }: IProps) {
+export default function RightDrawer({ open, setOpen, isAuthenticated, loginWithRedirect, user }: IProps) {
   const classes = useStyles();
   const history = useHistory();
 
@@ -69,22 +69,22 @@ export default function RightDrawer({ open, setOpen /*isAuthenticated, loginWith
           </ListItemIcon>
           <ListItemText primary="Diskuze" />
         </ListItem>
-        {/* {isAuthenticated ? (
+        <hr />
+        {isAuthenticated ? (
           <ListItem button onClick={() => history.push("/Profile")}>
             <ListItemIcon>
-              <Avatar src={user.picture} />
+              <Avatar src={user?.picture} />
             </ListItemIcon>
-            <ListItemText primary={user.name} />
+            <ListItemText primary={user?.name} />
           </ListItem>
-        ) : ( */}
-        <hr />
-        <ListItem button /*onClick={loginWithRedirect}*/>
-          <ListItemIcon>
-            <Person />
-          </ListItemIcon>
-          <ListItemText primary="Přihlásit se" />
-        </ListItem>
-        {/* )} */}
+        ) : (
+          <ListItem button onClick={loginWithRedirect}>
+            <ListItemIcon>
+              <Person />
+            </ListItemIcon>
+            <ListItemText primary="Přihlásit se" />
+          </ListItem>
+        )}
       </List>
     </SwipeableDrawer>
   );

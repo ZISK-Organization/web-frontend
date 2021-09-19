@@ -77,9 +77,9 @@ export default function Layout(props: { children?: React.ReactNode }) {
         <MobileNavbar
           open={navbarOpen}
           setOpen={setNavbarOpen}
-          // isAuthenticated={isAuthenticated}
-          // loginWithRedirect={loginWithRedirect}
-          // user={user}
+          isAuthenticated={isAuthenticated}
+          loginWithRedirect={loginWithRedirect}
+          user={user}
         />
       </Hidden>
       <br />
