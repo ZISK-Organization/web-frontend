@@ -12,7 +12,7 @@
     "imagePath": "/img/Tutorials/others.jpg"
   },
   {
-    "categoryId": "AI",
+    "categoryId": "AIO",
     "categoryName": "Umělá inteligence a optimalizační problémy",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
     "imagePath": "/img/Tutorials/AI.jpg"
@@ -24,19 +24,19 @@
     "imagePath": "/img/Tutorials/networks.jpg"
   },
   {
-    "categoryId": "DB",
+    "categoryId": "DBD",
     "categoryName": "Databáze a big data",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
     "imagePath": "/img/Tutorials/databases.png"
   },
   {
-    "categoryId": "OS",
+    "categoryId": "OSL",
     "categoryName": "Operační systémy a nízkoúrovňové programování",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
     "imagePath": "/img/Tutorials/os.jpg"
   },
   {
-    "categoryId": "HW",
+    "categoryId": "HWE",
     "categoryName": "Hardware a elektortechnika",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
     "imagePath": "/img/Tutorials/hardware.webp"

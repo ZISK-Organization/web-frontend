@@ -18,9 +18,10 @@ interface IProps {
   taskId: string;
   modules: number;
   deadline: Date;
+  isTutorial: boolean;
 }
 
-export default function Assignment({ taskId, modules, deadline }: IProps) {
+export default function Assignment({ taskId, modules, deadline, isTutorial }: IProps) {
   const classes = useStyles();
   const [frameHeight, setFrameHeight] = useState("0px");
   const [content, setContent] = useState("");
@@ -33,7 +34,7 @@ export default function Assignment({ taskId, modules, deadline }: IProps) {
 
   useEffect(() => {
     tasksService.get(
-      isAdmin ? "/files/admin/assignment" : "/files/assignment",
+      isTutorial ? "/files/tutorialAssignment" : isAdmin ? "/files/admin/assignment" : "/files/assignment",
       { taskId: taskId },
       {
         success: setContent,

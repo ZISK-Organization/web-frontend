@@ -14,9 +14,10 @@ import { Thread } from "../../Types/discussion";
 
 interface IProps {
   taskId: string;
+  isTutorial: boolean;
 }
 
-export default function Task({ taskId }: IProps) {
+export default function Task({ taskId, isTutorial }: IProps) {
   const [tab, setTab] = useState(0);
   const [task, setTask] = useState<taskMeta | undefined>(undefined);
   const [author, setAuthor] = useState<User | undefined>();
@@ -44,7 +45,7 @@ export default function Task({ taskId }: IProps) {
 
   useEffect(() => {
     tasksService.get(
-      "/admin/meta",
+      isTutorial ? "/tutorials/meta" : "/meta",
       { id: taskId },
       {
         success: (task: taskMeta) => {
@@ -99,14 +100,18 @@ export default function Task({ taskId }: IProps) {
           )}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div>
-            <Typography variant="subtitle1">
-              <b>DEADLINE:</b> {new Date(task.deadline).toLocaleString()}
-            </Typography>
-            {new Date(task.deadline).getTime() > new Date().getTime() && (
-              <Typography variant="subtitle1">
-                Zbývá jetě {Math.floor((new Date(task.deadline).getTime() - new Date().getTime()) / 86400000)} d{" "}
-                {Math.round(((new Date(task.deadline).getTime() - new Date().getTime()) % 86400000) / 3600000)} h
-              </Typography>
+            {!isTutorial && (
+              <>
+                <Typography variant="subtitle1">
+                  <b>DEADLINE:</b> {new Date(task.deadline).toLocaleString()}
+                </Typography>
+                {new Date(task.deadline).getTime() > new Date().getTime() && (
+                  <Typography variant="subtitle1">
+                    Zbývá jetě {Math.floor((new Date(task.deadline).getTime() - new Date().getTime()) / 86400000)} d{" "}
+                    {Math.round(((new Date(task.deadline).getTime() - new Date().getTime()) % 86400000) / 3600000)} h
+                  </Typography>
+                )}
+              </>
             )}
           </div>
         </Flex>
@@ -115,12 +120,14 @@ export default function Task({ taskId }: IProps) {
         <Tabs value={tab} onChange={(_, val) => setTab(val)} indicatorColor="primary" textColor="primary">
           <Tab label="Zadání" />
           <Tab label="Diskuze" />
-          <Tab label="Hodnocení" />
-          {(new Date(task.deadline).getTime() < new Date().getTime() || isAdmin) && <Tab label="Vzorové řešení" />}
+          {!isTutorial && <Tab label="Hodnocení" />}
+          {!isTutorial && (new Date(task.deadline).getTime() < new Date().getTime() || isAdmin) && (
+            <Tab label="Vzorové řešení" />
+          )}
         </Tabs>
         <br />
         {tab === 0 ? (
-          <Assignment deadline={new Date(task.deadline)} taskId={taskId} modules={task.modules} />
+          <Assignment isTutorial={isTutorial} deadline={new Date(task.deadline)} taskId={taskId} modules={task.modules} />
         ) : tab === 1 ? (
           discussion === undefined ? (
             <Typography>Načítám data</Typography>

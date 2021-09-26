@@ -12,6 +12,7 @@ import Task from "./Pages/Task/Task";
 import Tutorials from "./Pages/Tutorials/Tutorials";
 import LoginRedirect from "./Pages/Profile/LoginRedirect";
 import Profile from "./Pages/Profile/Profile";
+import TutorialsCategory from "./Pages/TutorialsCategory/TutorialsCategory";
 
 interface IdParams {
   id: string;
@@ -25,7 +26,21 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Tasks" exact component={Tasks} />
-        <Route path="/Tasks/:id" exact render={({ match }: TaskProps) => <Task taskId={match.params.id} />} />
+        <Route
+          path="/Tasks/:id"
+          exact
+          render={({ match }: TaskProps) => <Task taskId={match.params.id} isTutorial={false} />}
+        />
+        <Route
+          path="/Tutorials/:id"
+          exact
+          render={({ match }: TaskProps) => <TutorialsCategory categoryId={match.params.id} />}
+        />
+        <Route
+          path="/Tutorial/:id"
+          exact
+          render={({ match }: TaskProps) => <Task taskId={match.params.id} isTutorial={true} />}
+        />
         <Route path="/Tutorials" exact component={Tutorials} />
         <Route path="/Memes" exact component={Memes} />
         <Route path="/Results" exact component={Results} />

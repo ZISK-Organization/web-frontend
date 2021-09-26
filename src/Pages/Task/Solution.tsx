@@ -61,10 +61,10 @@ export default function Solution({ taskId }: IProps) {
                   <head>
                       <link rel="stylesheet" href="/css/assignmentStyles.css" />
                   </head>
-                <body>
-                  ${content}
-                </body>
-              </html>`}
+                  <body>
+                    ${content}
+                  </body>
+                </html>`}
       />
     </>
   );
