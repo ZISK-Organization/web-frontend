@@ -4,5 +4,11 @@
       "id": "01",
       "name": "Kryptografie"
     }
+  ],
+  "OTH": [
+    {
+      "id": "01",
+      "name": "Úvod k programovacím jazykům"
+    }
   ]
 }
