@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Button, Checkbox, createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Editor } from "@tinymce/tinymce-react";
 import { Post } from "../Types/discussion";
 import { discussionService } from "../Utils/ApiService";
@@ -22,27 +22,26 @@ interface IProps {
 export default function NewPostEditor({ onCreate, onCancel, threadId, parentPostId }: IProps) {
   const classes = useStyles();
   const [text, setText] = useState("");
+  const [anonymously, setAnonymously] = useState(false);
   const layout = useLayout();
 
   const { isAuthenticated, user } = useAuth0();
 
   const save = () => {
-    if (isAuthenticated) {
-      const p = {
-        id: null,
-        author: user?.sub,
-        content: text,
-        details: "",
-        creationDate: null,
-        threadId: threadId,
-        parentId: parentPostId,
-        children: [],
-      };
-      discussionService.post("post", {}, p, {
-        success: (id: number) => onCreate({ ...p, id: id, creationDate: new Date() } as Post),
-        error: () => layout.error("Při odesílání příspěvku došlo k chybě"),
-      });
-    }
+    const p = {
+      id: null,
+      author: anonymously || !isAuthenticated ? null : user?.sub,
+      content: text,
+      details: "",
+      creationDate: null,
+      threadId: threadId,
+      parentId: parentPostId,
+      children: [],
+    };
+    discussionService.post("post", {}, p, {
+      success: (id: number) => onCreate({ ...p, id: id, creationDate: new Date() } as Post),
+      error: () => layout.error("Při odesílání příspěvku došlo k chybě"),
+    });
   };
 
   return (
@@ -61,12 +60,21 @@ export default function NewPostEditor({ onCreate, onCancel, threadId, parentPost
           automatic_uploads: true,
           height: 320,
           images_reuse_filename: true,
-          //TODO move to out api
+          //TODO move to our api
           images_upload_url: `https://api.magistrmartin.cz/images/uploadImage`,
           images_upload_base_path: "https://api.magistrmartin.cz/images/noauth/image/images/",
         }}
         onChange={(e) => setText(e.target.getContent())}
       />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Checkbox
+          checked={anonymously || !isAuthenticated}
+          disabled={!isAuthenticated}
+          onChange={() => setAnonymously(!anonymously)}
+          color="primary"
+        />
+        <Typography> Nahrát anonymě</Typography>
+      </div>
       <Button color="primary" onClick={save}>
         Odeslat
       </Button>

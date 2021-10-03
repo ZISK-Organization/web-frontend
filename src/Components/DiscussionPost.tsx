@@ -45,14 +45,15 @@ export default function DiscussionPost({ post, setPost, offset }: IProps) {
   };
 
   useEffect(() => {
-    profilesService.get(
-      "/",
-      { userId: post.author },
-      {
-        success: setAuthor,
-        error: console.log,
-      }
-    );
+    post.author &&
+      profilesService.get(
+        "/",
+        { userId: post.author },
+        {
+          success: setAuthor,
+          error: console.log,
+        }
+      );
   }, [post.author]);
 
   offset = offset ? offset : 0;
@@ -60,10 +61,10 @@ export default function DiscussionPost({ post, setPost, offset }: IProps) {
   return (
     <>
       <div className={classes.header}>
-        <Avatar src={(author && author.image) || post.author[0]} />
+        <Avatar src={post.author && ((author && author.image) || post.author[0])} />
         &nbsp;&nbsp;&nbsp;&nbsp;
         <span>
-          <Typography variant="h6">{(author && `${author.name} ${author.surname}`) || post.author}</Typography>
+          <Typography variant="h6">{(author && `${author.name} ${author.surname}`) || post.author || "Anonymní"}</Typography>
           <Typography color="textSecondary">{new Date(post.creationDate).toLocaleString()}</Typography>
         </span>
       </div>
