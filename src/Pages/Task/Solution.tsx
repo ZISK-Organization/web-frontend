@@ -60,6 +60,11 @@ export default function Solution({ taskId }: IProps) {
         srcDoc={`<html>
                   <head>
                       <link rel="stylesheet" href="/css/assignmentStyles.css" />
+                      ${
+                        (localStorage.getItem("theme") || "light") === "dark"
+                          ? '<link rel="stylesheet" href="/css/assignmentDarkStyles.css" /></>'
+                          : ""
+                      }
                   </head>
                   <body>
                     ${content}
