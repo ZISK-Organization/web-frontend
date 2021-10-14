@@ -2,6 +2,7 @@ import React from "react";
 import { createStyles, makeStyles, Theme, Typography, Container, IconButton, Tooltip, Grid } from "@material-ui/core";
 import { Brightness4, Facebook, GetAppRounded, GitHub, Instagram, Mail, Policy, WhatsApp } from "@material-ui/icons";
 import packageJson from "../../package.json";
+import useWindowDimensions from "../Hooks/GetWindowDimensions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,6 +43,7 @@ interface IProps {
 
 export default function Footer({ hidden, changeTheme }: IProps) {
   const classes = useStyles();
+  const { width } = useWindowDimensions();
 
   const serviceWorkerUnregistration = () => {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -54,6 +56,8 @@ export default function Footer({ hidden, changeTheme }: IProps) {
     window.location.reload();
   };
 
+  const isXs = width < 600;
+
   return (
     <>
       {!hidden && (
@@ -64,7 +68,9 @@ export default function Footer({ hidden, changeTheme }: IProps) {
               <div className={classes.innerRoot}>
                 <Grid container alignItems="center">
                   <Grid item xs={12} sm={4}>
-                    <img src="/img/logo_large.svg" alt="logo" className={classes.logo} />
+                    <div style={{ textAlign: isXs ? "center" : "left" }}>
+                      <img src="/img/logo_large.svg" alt="logo" className={classes.logo} />
+                    </div>
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <div style={{ textAlign: "center", width: "100%" }}>
@@ -101,8 +107,8 @@ export default function Footer({ hidden, changeTheme }: IProps) {
                       </Tooltip>
                     </div>
                   </Grid>
-                  <Grid item xs={12} sm={4} style={{ textAlign: "right" }}>
-                    <div style={{ textAlign: "right", width: "100%" }}>
+                  <Grid item xs={12} sm={4}>
+                    <div style={{ textAlign: isXs ? "center" : "right", width: "100%" }}>
                       <Tooltip title="Privacy policy">
                         <IconButton onClick={() => window.open("/PrivacyPolicy", "_blank")}>
                           <Policy />
