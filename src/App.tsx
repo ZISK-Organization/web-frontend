@@ -13,6 +13,7 @@ import Tutorials from "./Pages/Tutorials/Tutorials";
 import LoginRedirect from "./Pages/Profile/LoginRedirect";
 import Profile from "./Pages/Profile/Profile";
 import TutorialsCategory from "./Pages/TutorialsCategory/TutorialsCategory";
+import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
 
 interface IdParams {
   id: string;
@@ -47,6 +48,8 @@ export default function App() {
         <Route path="/About" exact component={About} />
         <Route path="/Discussion" exact component={Discussion} />
         <Route path="/Profile" exact component={Profile} />
+
+        <Route path="/PrivacyPolicy" exact component={PrivacyPolicy} />
 
         <Route path="/loginRedirect" exact component={LoginRedirect} />
         <Route component={Error404} />
