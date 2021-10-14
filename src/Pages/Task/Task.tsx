@@ -120,7 +120,7 @@ export default function Task({ taskId, isTutorial }: IProps) {
         <Tabs value={tab} onChange={(_, val) => setTab(val)} indicatorColor="primary" textColor="primary">
           <Tab label="Zadání" />
           <Tab label="Diskuze" />
-          {!isTutorial && <Tab label="Hodnocení" />}
+          {!isTutorial && <Tab label="Výplata" />}
           {!isTutorial && (new Date(task.deadline).getTime() < new Date().getTime() || isAdmin) && (
             <Tab label="Vzorové řešení" />
           )}

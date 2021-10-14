@@ -88,7 +88,7 @@ export default function Tasks() {
             <React.Fragment key={series.seriesNumber}>
               <Accordion defaultExpanded={series.seriesNumber === tasks.length} style={{ borderRadius: 8 }}>
                 <AccordionSummary className={classes.seriesHeader} expandIcon={<ExpandMore />}>
-                  <Typography>Série {series.seriesNumber}</Typography>
+                  <Typography>{series.seriesNumber}. výplatní období</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Grid container spacing={3}>

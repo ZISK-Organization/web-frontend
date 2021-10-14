@@ -49,7 +49,7 @@ export default function Results({ maxPoints, taskId }: IProps) {
   return (
     <>
       <br />
-      <Typography variant="h6">Body</Typography>
+      <Typography variant="h6">Výplata</Typography>
       <br />
       <div className={classes.flex}>
         <LinearProgress
@@ -58,7 +58,7 @@ export default function Results({ maxPoints, taskId }: IProps) {
           color="primary"
           variant="determinate"
         />
-        <Typography>
+        <Typography style={{ minWidth: 52 }}>
           {results} / {maxPoints}
         </Typography>
       </div>
