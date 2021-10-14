@@ -271,6 +271,7 @@ export default function Profile() {
             />
             <br />
             <br />
+
             <Button
               onClick={saveChanges}
               disabled={!isCompleted}
@@ -283,6 +284,15 @@ export default function Profile() {
             <Button onClick={() => logout({ returnTo: window.location.origin })} style={{ float: "right", marginRight: 12 }}>
               Odhlásit se
             </Button>
+            {!isCompleted && (
+              <>
+                <br />
+                <br />
+                <Typography variant="caption" style={{ float: "right" }}>
+                  Pro uložení profilu je nutné vyplnit všechny poviné údaje (vše až na přezdívku a O mně)
+                </Typography>
+              </>
+            )}
           </Grid>
         </Grid>
       )) || <>Načítání profilu</>}
