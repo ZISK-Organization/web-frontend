@@ -1,7 +1,7 @@
 [
   { "id": "ALG", "icon": "/img/Categories/ALG.svg", "name": "Algoritmické a matematické úlohy" },
   { "id": "THE", "icon": "/img/Categories/THEO.png", "name": "Teoretická informatika" },
-  { "id": "AI", "icon": "/img/Categories/ai.png", "name": "Umělá inteligence a optimalizační problémy" },
+  { "id": "AIO", "icon": "/img/Categories/ai.png", "name": "Umělá inteligence a optimalizační problémy" },
   { "id": "NET", "icon": "/img/Categories/network.png", "name": "Sítě a bezpečnost" },
   { "id": "DB", "icon": "/img/Categories/db.png", "name": "Databáze a big data" },
   { "id": "OS", "icon": "/img/Categories/os.png", "name": "Operační systémy a nízkoúrovňové programování" },
