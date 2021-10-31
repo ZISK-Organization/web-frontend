@@ -5,6 +5,12 @@
       "name": "Kryptografie"
     }
   ],
+  "AIO": [
+    {
+      "id": "02",
+      "name": "Stochastické procesy"
+    }
+  ],
   "OTH": [
     {
       "id": "01",
