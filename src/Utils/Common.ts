@@ -18,3 +18,5 @@ export const openFileContext = (onSelect: (file: File[]) => void) => {
   fileSelector.onchange = (e) => onSelect(e.currentTarget?.files);
   fileSelector.click();
 };
+
+export const getThemeStoredCode = () => localStorage.getItem("theme") || "light";

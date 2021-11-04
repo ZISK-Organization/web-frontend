@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
     iframe: {
       border: "none",
       width: "100%",
+      overflowY: "hidden",
     },
   })
 );
@@ -44,12 +45,22 @@ export default function Assignment({ taskId, modules, deadline, isTutorial }: IP
     //eslint-disable-next-line
   }, [taskId]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      iframeReady();
+    }, 10000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line
+  }, [frameHeight]);
+
   const iframeReady = () => {
     let iframe = document.getElementById("assignmentIframe") as HTMLIFrameElement;
     //@ts-ignore
     let iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-    if (iframeWin.document.body)
-      setFrameHeight((iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight) + " px");
+    if (iframeWin.document.body) {
+      const newHeight = (iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight) + " px";
+      if (newHeight !== frameHeight) setFrameHeight(newHeight);
+    }
   };
 
   return (
@@ -72,7 +83,17 @@ export default function Assignment({ taskId, modules, deadline, isTutorial }: IP
                     <body>
                       ${content}
                       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-                      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+                      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+                      <script type="text/x-mathjax-config">
+                        MathJax.Hub.Config({
+                        "HTML-CSS": {
+                        linebreaks: {automatic: true}
+                        },
+                        "SVG": {
+                        linebreaks: {automatic: true}
+                        }
+                        });
+                      </script>
                     </body>
                 </html>`}
       />

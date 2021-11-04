@@ -19,6 +19,7 @@ import {
 // import news from "../../Data/Mock/News.json";
 import team from "../../Data/Team.json";
 import TeamMemberCard from "./TeamMemberCard";
+import DataCard from "../../Components/DataCard";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -133,16 +134,44 @@ export default function Home() {
       <br />
       <br />
       <br />
-      <Typography align="center">
-        TODO: Here will be some basic info and marketing überawesome shit for propagation of our seminar.
-      </Typography>
-      <br />
-      <br />
+      <DataCard
+        image="/img/Homepage/allFields.png"
+        text="Informatika je široký obor, ve kterém se na vyšší úrovni každý specializuje na něco jiného, a přijde nám škoda zaměřovat se čistě na algoritmizaci či úplné základy a opomíjet mnohé zajímavé disciplíny jako je kyberbezpečnost, procesory, architektura operačních systémů, umělá inteligence, bioinformatika, či kvantové programování. Věříme, že je mnoho studentů s talentem pro různé oblasti této vědy, a chceme jim pomoci ho rozvíjet. V naší soutěži tedy budete mít možnost si vyzkoušet úlohy ze všech možných oborů informatiky, matematiky a elektrotechniky a to nejen softwareově na vašem počítači, ale i s fyzickým hardwarem."
+        orientation="standard"
+        title="Tematická pestrost úloh"
+        theme="dark"
+      />
+      <DataCard
+        image="/img/Homepage/languages.png"
+        text="Nebudeme vám vnucovat žádný konkrétní postup, operační systém ani programovací jazyk (pokud zrovna není přímo tématem úlohy), aby měli jednak možnost úlohu řešit nejpohodlnějším způsobem, jednak možnost zvolit obtížnější způsob (např. exotický programovací jazyk) ke zdokonalení vlastních schopností."
+        orientation="reversed"
+        title="Individuální přístup"
+        theme="light"
+      />
+      <DataCard
+        image="/img/Homepage/difs.png"
+        text="I v praxi se vyskytují úkoly vyžadující různou míru znalostí a inteligence, proto i zde chceme připravit co nejvíce úrovní obtížnosti úloh, aby si každý, kdo už má nějaké povědomí o informatice, mohl najít tu odpovídající jeho současným schopnostem a dovednostem. V každém výplatním období jsou úlohy 4 obtížností, z nichž nejjednodušší úlohu by měl zvládnout každý, kdo někdy jen trochu programoval, zatímco nejtěžší představuje skutečnou výzvu i pro většinu vysokoškolských studentů."
+        orientation="standard"
+        title="Rozsah obtížnosti úloh"
+        theme="dark"
+      />
+      <DataCard
+        image="/img/Homepage/memes.jpg"
+        text="Máme memes!!! Přímo na našich stránkách naleznete platformu, kde budete moct sdílet či sledovat spoustu skvělých memes spojených nejen se soutěží, které si pro vás jak organizátoři tak ostatní účastníci nachystali."
+        orientation="reversed"
+        title="Memes"
+        theme="light"
+      />
+      <DataCard
+        image="/img/Homepage/party.png"
+        text="I když se snažíme, aby byly úlohy co nejkvalitnější, není to nejpodstatnější součást soutěže, tou je poznávání nových lidí skrz sdílené aktivity. Proto také obsahují stránky pro odlehčení feed s informatickými memy a k soutěži patří společné akce, ať už pořádané fyzicky či ve virtuálním prostoru."
+        orientation="standard"
+        title="Kontakt i mimo úlohy"
+        theme="dark"
+      />
       <br />
       <br />
       <Container maxWidth="xl">
-        <Typography variant="h4">Organizátoři</Typography>
-        <br />
         <Grid container>
           {team.map((t, i) => (
             <Grid className={classes.cardContainer} key={i} item xs={12} md={6} lg={4}>
