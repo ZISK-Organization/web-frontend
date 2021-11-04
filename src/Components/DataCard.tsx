@@ -23,14 +23,14 @@ const useStyles = (cardTheme: "dark" | "light") =>
         height: "40vh",
         marginTop: "5vh",
         marginBottom: "5vh",
-        marginRight: 32,
-        marginLeft: 32,
+        width: "100%",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
         backgroundPosition: "center center",
       },
       cardText: {
         marginBottom: "5vh",
+        padding: 32,
       },
       center: {
         textAlign: "center",
@@ -51,8 +51,10 @@ export default function DataCard({ title, text, image, orientation, theme, link,
     <div className={classes.homeCard}>
       <Container maxWidth="lg">
         <Grid container direction={orientation === "standard" ? "row" : "row-reverse"} alignItems="center" justify="center">
-          <Grid item md={6} className={classes.center}>
-            <div style={{ backgroundImage: `url(${image})` }} className={classes.cardImage} />
+          <Grid item md={6} xs={12} className={classes.center}>
+            <div style={{ backgroundImage: `url(${image})` }} className={classes.cardImage}>
+              &nbsp;
+            </div>
           </Grid>
           <Grid item md={6} xs={12} className={classes.cardText}>
             <Typography variant="h3" style={{ marginBottom: 22 }}>
