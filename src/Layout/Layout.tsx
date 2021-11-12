@@ -5,6 +5,7 @@ import MobileNavbar from "./SwipeableNavbar";
 import Footer from "./Footer";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Alert } from "@material-ui/lab";
+import { useLocation } from "react-router-dom";
 // import { profileService } from "../Utils/ApiService";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -95,6 +96,7 @@ export default function Layout(props: { children?: React.ReactNode }) {
   const classes = useStyles();
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">(themeStoredCode as "dark" | "light");
+  const location = useLocation();
 
   const changeAppTheme = (theme: "dark" | "light") => {
     document.body.style.backgroundColor = "";
@@ -151,30 +153,34 @@ export default function Layout(props: { children?: React.ReactNode }) {
   return (
     <MuiThemeProvider theme={getTheme(theme)}>
       <div className={classes.root}>
-        <div style={{ flexGrow: 1 }}>
-          <Header
-            openMobileNavbar={() => setNavbarOpen(true)}
-            isAuthenticated={isAuthenticated}
-            loginWithRedirect={loginWithRedirect}
-            user={user}
-            logout={logout}
-          />
-        </div>
-        <Hidden mdUp>
-          <MobileNavbar
-            open={navbarOpen}
-            setOpen={setNavbarOpen}
-            isAuthenticated={isAuthenticated}
-            loginWithRedirect={loginWithRedirect}
-            user={user}
-          />
-        </Hidden>
-        <br />
-        <Alert style={{ width: "80%", marginLeft: "10%" }} severity="warning">
-          Stránky jsou stále ve vývoji a testování. Postupem času budou přibývat nové funkce. Pokud narazíte na jakýkoliv
-          problém, prosím kontaktujte organizátory.
-        </Alert>
-        <br />
+        {location.pathname.length > 1 && (
+          <>
+            <div style={{ flexGrow: 1 }}>
+              <Header
+                openMobileNavbar={() => setNavbarOpen(true)}
+                isAuthenticated={isAuthenticated}
+                loginWithRedirect={loginWithRedirect}
+                user={user}
+                logout={logout}
+              />
+            </div>
+            <Hidden mdUp>
+              <MobileNavbar
+                open={navbarOpen}
+                setOpen={setNavbarOpen}
+                isAuthenticated={isAuthenticated}
+                loginWithRedirect={loginWithRedirect}
+                user={user}
+              />
+            </Hidden>
+            <br />
+            <Alert style={{ width: "80%", marginLeft: "10%" }} severity="warning">
+              Stránky jsou stále ve vývoji a testování. Postupem času budou přibývat nové funkce. Pokud narazíte na jakýkoliv
+              problém, prosím kontaktujte organizátory.
+            </Alert>
+            <br />
+          </>
+        )}
         {props.children}
         <Footer hidden={false} changeTheme={() => (theme === "dark" ? changeAppTheme("light") : changeAppTheme("dark"))} />
       </div>

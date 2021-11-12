@@ -17,7 +17,16 @@ const useStyles = (cardTheme: "dark" | "light") =>
     createStyles({
       homeCard: {
         width: "100%",
-        backgroundColor: cardTheme === "light" ? "transparent" : getThemeStoredCode() === "light" ? "#F6F8FB" : "#121212",
+        backgroundColor:
+          cardTheme === "light" && getThemeStoredCode() === "light"
+            ? "white"
+            : cardTheme === "light"
+            ? "#212121"
+            : getThemeStoredCode() === "light"
+            ? "#F6F8FB"
+            : "#121212",
+        zIndex: 10,
+        position: "relative",
       },
       cardImage: {
         height: "40vh",

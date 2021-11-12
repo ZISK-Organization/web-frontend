@@ -4,7 +4,6 @@ import {
   makeStyles,
   Theme,
   Container,
-  Typography,
   Grid,
   // useTheme,
   // Card,
@@ -20,10 +19,31 @@ import {
 import team from "../../Data/Team.json";
 import TeamMemberCard from "./TeamMemberCard";
 import DataCard from "../../Components/DataCard";
+import HomeRoutingIcon from "../../Components/HomeRoutingIcon";
+import { getThemeStoredCode } from "../../Utils/Common";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    logo: { width: "80%", marginLeft: "10%" },
+    logo: {
+      width: "100vw",
+      backgroundImage: "url(/img/intro.png)",
+      backgroundColor: "#540e04",
+      height: "100vh",
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
+      position: "absolute",
+      backgroundPositionX: "center",
+      zIndex: -2,
+    },
+    iconsPanel: {
+      display: "flex",
+      justifyContent: "center",
+      position: "fixed",
+      bottom: 22,
+      width: "100vw",
+      zIndex: 1,
+    },
     actualitiesContainer: {
       width: "100%",
       backgroundColor: theme.palette.primary.main,
@@ -60,18 +80,14 @@ export default function Home() {
 
   return (
     <>
-      <Container maxWidth="xl">
-        <br />
-        <br />
-        <img className={classes.logo} src="/img/logo_large.svg" alt="logo" />
-        <br />
-        <br />
-        <Typography variant="h2" align="center">
-          Zábavné informatické soutěžní klání
-        </Typography>
-      </Container>
-      <br />
-      <br />
+      <div className={classes.logo}></div>
+      <div className={classes.iconsPanel}>
+        <HomeRoutingIcon image="/img/task.png" label="Úlohy" src="/Tasks" />
+        <HomeRoutingIcon image="/img/tut.png" label="Tutoriály" src="/Tutorials" />
+        <HomeRoutingIcon image="/img/meme.png" label="Memes" src="/Memes" />
+        <HomeRoutingIcon image="/img/trophy.png" label="Výsledky" src="/Results" />
+      </div>
+      <div style={{ width: "1vw", height: "100vh", zIndex: -3 }}></div>
       {/* <div className={classes.actualitiesContainer}>
         <Container maxWidth="xl">
           <br />
@@ -130,10 +146,6 @@ export default function Home() {
         </Container>
       </div>
      */}
-      <br />
-      <br />
-      <br />
-      <br />
       <DataCard
         image="/img/Homepage/allFields.png"
         text="Informatika je široký obor, ve kterém se na vyšší úrovni každý specializuje na něco jiného, a přijde nám škoda zaměřovat se čistě na algoritmizaci či úplné základy a opomíjet mnohé zajímavé disciplíny jako je kyberbezpečnost, procesory, architektura operačních systémů, umělá inteligence, bioinformatika, či kvantové programování. Věříme, že je mnoho studentů s talentem pro různé oblasti této vědy, a chceme jim pomoci ho rozvíjet. V naší soutěži tedy budete mít možnost si vyzkoušet úlohy ze všech možných oborů informatiky, matematiky a elektrotechniky a to nejen softwareově na vašem počítači, ale i s fyzickým hardwarem."
@@ -169,9 +181,13 @@ export default function Home() {
         title="Kontakt i mimo úlohy"
         theme="dark"
       />
-      <br />
-      <br />
-      <Container maxWidth="xl">
+
+      <Container
+        maxWidth="xl"
+        style={{ position: "relative", zIndex: 10, backgroundColor: getThemeStoredCode() === "light" ? "white" : "#212121" }}
+      >
+        <br />
+        <br />
         <Grid container>
           {team.map((t, i) => (
             <Grid className={classes.cardContainer} key={i} item xs={12} md={6} lg={4}>
@@ -188,6 +204,7 @@ export default function Home() {
             </Grid>
           ))}
         </Grid>
+        <br />
       </Container>
     </>
   );

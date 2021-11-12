@@ -107,7 +107,7 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
           <Typography variant="h2" style={{ flexGrow: 1, fontFamily: "Lato, Roboto, Helvetica, Arial, sans-serif" }}>
             ZISK
             <Hidden smDown>
-              <Typography component="span"> Zábavné informatické soutěžní klání</Typography>
+              <Typography component="span"> Zábavné Informatické SuperKlání</Typography>
             </Hidden>
           </Typography>
         </span>

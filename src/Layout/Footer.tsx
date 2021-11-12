@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: 4,
       borderTop: "solid 2px #f0f0f0",
       backgroundColor: theme.palette.secondary.main,
+      zIndex: 999,
+      position: "relative",
     },
     innerRoot: {
       display: "flex",
@@ -32,6 +34,8 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: 4,
       borderTop: "solid 2px #f0f0f0",
       backgroundColor: theme.palette.secondary.main,
+      zIndex: 999,
+      position: "relative",
     },
   })
 );
@@ -62,7 +66,6 @@ export default function Footer({ hidden, changeTheme }: IProps) {
     <>
       {!hidden && (
         <>
-          <br />
           <div className={classes.root}>
             <Container maxWidth="xl">
               <div className={classes.innerRoot}>
