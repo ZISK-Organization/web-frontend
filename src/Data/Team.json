@@ -1,37 +1,47 @@
 [
   {
-    "motto": "Some überawesome motto",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "motto": "Automatizace je optimalizační technika minimalizující lidskou chybu",
+    "about": "Dokončuji bakalářské studium informatiky se zaměřením na robotiku a umělou inteligenci na technické universitě v Mnichově. Zajímám se převážně o robotiku, automatizační techniky a autonomní řízení. Dále mám rád decentralizaci a decentralizované systémy a Web 3.0. Mimo to mám rád ježdění na kole, plavání a sebeobranu.",
     "photo": "/img/Team/StastnyJakub.png",
     "name": "Jakub Šťastný",
     "email": "xstastnyj@gmail.com",
     "github": "https://github.com/StastnyJ",
-    "birthDate": "2000-02-31"
+    "birthDate": "2000-03-31"
   },
   {
-    "motto": "Some überawesome motto",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "motto": "Matika, informatika, běhačky a stategie dohromady? To by mělo být na soustředění!",
+    "about": "Studuji ve třetím ročníku informatiku na vysoké škole. Dříve jsem řešil korespondenční semináře a teď mi to trochu chybí. Proto jsem založil seminář, který můžou řešit i vysokoškoláci. Kromě informatiky se zajímám i o matematiku. Zejména algebra a teorie gafů mi přijde zajímavá. Rád lyžuji, plavu, jezdím na kole a hraju deskovky.",
     "photo": "/img/Team/KramarBor.jpg",
     "name": "Dalibor Kramář",
     "email": "dalik.kramar@gmail.com",
     "github": "https://github.com/dalikkk",
-    "birthDate": "1999-05-03"
+    "birthDate": "1999-06-03"
   },
   {
     "motto": "Some überawesome motto",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "about": "Student matematické informatiky na FI MUNI. Zajímám se také o programovací jazyky, operační systémy, architektury procesorů a historický hardware; kromě informatických věcí taky o jazyky, filosofii a náboženství.",
     "photo": "/img/Team/GlozarTomas.jpg",
     "name": "Tomáš Glozar",
     "email": "tglozar@gmail.com",
     "github": "https://github.com/lenticularis39",
-    "birthDate": "2000-02-31"
+    "birthDate": "2000-01-01"
   },
   {
-    "motto": "Some überawesome motto",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "motto": "Všechno vyřešíš tím, že to vypneš a zapneš",
+    "about": "Prvním rokem studuji informatiku, ale zajímá mě také matematika. Ráda přemýšlím a řeším logické úlohy. Baví mě hry všeho druhu – deskové, počítačové, šifrovací. Hodně času věnuji svým koníčkům – výtvarnému umění, cirkusu a čtení.",
     "photo": "/img/Team/MatulovaKaterina.jpg",
     "name": "Kateřina Matulová",
-    "email": "",
-    "birthDate": "2001-09-01"
+    "email": "katymatulova@gmail.com",
+    "github": "https://github.com/katamat",
+    "birthDate": "2001-10-01"
+  },
+  {
+    "motto": "Všechno stojí za to zkusit",
+    "about": "Jsem student MFF UK, oboru Matematika pro IT. Ačkoli se chci věnovat informatice, stále jsem srdcem matematik. Mezi mé další koníčky patří historie, cestování a vaření.",
+    "photo": "/img/Team/ChwidOndra.jpg",
+    "name": "Ondřej Chwiedziuk",
+    "email": "ondrachwiedziuk@matfyz.cz",
+    "github": "https://github.com/ondrachwiedziuk",
+    "birthDate": "2002-01-01"
   }
 ]

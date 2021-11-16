@@ -95,7 +95,7 @@ export default function TeamMemberCard({ photo, name, age, motto, email, github,
                 <tr>
                   <td>
                     <Typography className={classes.greyText} variant="subtitle1">
-                      Age
+                      Věk
                     </Typography>
                   </td>
                   <td>

@@ -194,7 +194,7 @@ export default function Home() {
               <TeamMemberCard
                 photo={t.photo}
                 name={t.name}
-                age={5}
+                age={new Date().getUTCFullYear() - new Date(t.birthDate).getUTCFullYear()}
                 motto={t.motto}
                 email={t.email}
                 github={t.github}
