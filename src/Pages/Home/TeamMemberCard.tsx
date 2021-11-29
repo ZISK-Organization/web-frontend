@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#007bff",
     },
     greyText: {
-      color: "#5c5c5c",
+      color: theme.palette.type === "dark" ? "#c4c4c4" : "#5c5c5c",
     },
   })
 );
