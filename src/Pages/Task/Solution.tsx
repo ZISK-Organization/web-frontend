@@ -68,6 +68,18 @@ export default function Solution({ taskId }: IProps) {
                   </head>
                   <body>
                     ${content}
+                    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+                      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+                      <script type="text/x-mathjax-config">
+                        MathJax.Hub.Config({
+                        "HTML-CSS": {
+                        linebreaks: {automatic: true}
+                        },
+                        "SVG": {
+                        linebreaks: {automatic: true}
+                        }
+                        });
+                    </script>
                   </body>
                 </html>`}
       />
