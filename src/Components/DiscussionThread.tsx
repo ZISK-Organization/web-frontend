@@ -15,7 +15,7 @@ export default function DiscussionThread({ thread, setThread }: IProps) {
   return (
     <>
       <br />
-      {thread.children.map((post, i) => (
+      {thread.children?.map((post, i) => (
         <DiscussionPost
           key={post.id}
           post={post}

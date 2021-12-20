@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { createStyles, makeStyles, Theme, LinearProgress, Typography } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useLayout } from "../../Layout/LayoutContext";
-import { submissionsService } from "../../Utils/ApiService";
+import { discussionService, submissionsService } from "../../Utils/ApiService";
 import DiscussionThread from "../../Components/DiscussionThread";
+import { Thread } from "../../Types/discussion";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,6 +28,7 @@ export default function Results({ maxPoints, taskId }: IProps) {
   const classes = useStyles();
   const [results, setResults] = useState(0);
   const { isAuthenticated, user } = useAuth0();
+  const [discussion, setDiscussion] = useState<Thread | undefined>();
 
   const layout = useLayout();
 
@@ -41,6 +43,22 @@ export default function Results({ maxPoints, taskId }: IProps) {
         {
           success: setResults,
           error: () => layout.error("Při načítání výsledků došlo k chybě"),
+        }
+      );
+    // eslint-disable-next-line
+  }, [isAuthenticated, taskId]);
+
+  useEffect(() => {
+    isAuthenticated &&
+      discussionService.get(
+        "/thread",
+        {
+          channel: `${user?.sub}${taskId}`,
+          channelType: "correction",
+        },
+        {
+          success: setDiscussion,
+          error: () => {},
         }
       );
     // eslint-disable-next-line
@@ -67,16 +85,7 @@ export default function Results({ maxPoints, taskId }: IProps) {
       <Typography variant="h6">Komentář k opravení</Typography>
       <br />
       <br />
-
-      <DiscussionThread
-        thread={{
-          channel: "",
-          id: 0,
-          channelType: "",
-          children: [],
-        }}
-        setThread={() => {}}
-      />
+      {discussion && <DiscussionThread thread={discussion} setThread={() => {}} />}
     </>
   );
 }
