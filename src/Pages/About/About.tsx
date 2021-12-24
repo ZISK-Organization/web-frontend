@@ -7,7 +7,7 @@ export default function About() {
       <Typography variant="h4">O soutěži</Typography>
       <br />
       <Typography>
-        Zábavné Informatické Soutěžní Klání (ZISK) je internetová informatická soutěž určená primárně studentům středních škol a
+        Zábavné Informatické Super Klání (ZISK) je internetová informatická soutěž určená primárně studentům středních škol a
         bakalářského studia vysokých škol. Řešit tedy může kdokoliv, ale úlohy jsou optimalizované pro tuto cílovou skupinu. Při
         tvorbě úloh se snažíme držet filosofie vyjádřené následujícími body...
       </Typography>
