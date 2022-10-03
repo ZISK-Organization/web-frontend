@@ -24,6 +24,7 @@ import { series } from "../../Types/taskTypes";
 import { useLayout } from "../../Layout/LayoutContext";
 import { tasksService } from "../../Utils/ApiService";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -84,6 +85,23 @@ export default function Tasks() {
       <br />
       <Grid container direction="row-reverse">
         <Grid item lg={9} xs={12}>
+          {layout.isLoading && (
+            <>
+              <Skeleton variant="rect" height={60} style={{ borderRadius: 8 }} />
+              <br />
+              <Card>
+                <CardContent style={{ paddingBottom: 0 }}>
+                  <Grid container spacing={3} style={{ paddingBottom: 0 }}>
+                    {[1, 2, 3, 4].map((i) => (
+                      <Grid item key={i} lg={3} style={{ paddingBottom: 0 }}>
+                        <Skeleton height={320} />
+                      </Grid>
+                    ))}
+                  </Grid>
+                </CardContent>
+              </Card>
+            </>
+          )}
           {tasks.map((series) => (
             <React.Fragment key={series.seriesNumber}>
               <Accordion defaultExpanded={series.seriesNumber === tasks.length} style={{ borderRadius: 8 }}>
@@ -147,6 +165,7 @@ export default function Tasks() {
               ))}
             </CardContent>
           </Card>
+          <br />
         </Grid>
       </Grid>
     </Container>

@@ -49,8 +49,7 @@ export default function Tutorials() {
     );
   }, []);
 
-  const getCorrectTutorialForm = (count: number) =>
-    count === 1 ? "Tutoriál" : count > 2 && count < 5 ? "Tutoriály" : "Tutoriálů";
+  const getCorrectTutorialForm = (count: number) => (count === 1 ? "Tutoriál" : count > 2 && count < 5 ? "Tutoriály" : "Tutoriálů");
 
   return (
     <Container maxWidth="xl">
@@ -68,7 +67,7 @@ export default function Tutorials() {
                     <Typography gutterBottom variant="h5" component="h2">
                       {cat.categoryName}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography variant="body2" color="textSecondary" component="p" align="justify">
                       {cat.description}
                     </Typography>
                     <br />

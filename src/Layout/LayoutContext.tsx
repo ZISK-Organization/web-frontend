@@ -92,7 +92,7 @@ export function LayoutProvider(props: { children?: React.ReactNode }) {
             {customAlertProps.message}
           </Alert>
         </Snackbar>
-        <LinearProgress style={{ position: "fixed", bottom: "0", height: "4px", width: "100%" }} hidden={!loading} />
+        <LinearProgress style={{ position: "fixed", bottom: 0, zIndex: 9999, height: 4, width: "100%" }} hidden={!loading} />
       </Layout>
     </LayoutContext.Provider>
   );

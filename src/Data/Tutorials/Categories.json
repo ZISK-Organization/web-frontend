@@ -14,13 +14,13 @@
   {
     "categoryId": "AIO",
     "categoryName": "Umělá inteligence a optimalizační problémy",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "description": "V této sekci se budume věnovat technikám z oboru umělé inteligence, strojového učení či jiným  optimalizačním problémům. Umělá inteligence běžně nepoužívá exaktní techniky, ale snaží se výsledek aproximovat s určitou požadovanou přesností. Typicky sem řadíme optimalizační, regresní a klasifikační problémy. Úkolem optimalizačních úkolů je najít takový vstup pro známou, či neznámou funkci, který minimalizuje nebo naopak maximalizuje její výstup. Klasifikační problémy se snaží přiřadit data do předem daných tříd na základě vstupů. Regresní problémy se snaží ze znalosti několika vstupů a výstupů odhadnout funkci a zobecnit ji pro jakýkoliv vstup.",
     "imagePath": "/img/Tutorials/AI.jpg"
   },
   {
     "categoryId": "NET",
     "categoryName": "Sítě a bezpečnost",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "description": "Samostatný počítač funguje skvěle, ale co teprve více propojených počítačů, které spolu komunikují a sdílejí své prostředky! Aby si počítače navzájem rozuměly, bylo navrženo spoustu různých komunikačních protokolů, které je potřeba pro specifická využití dodržovat. Tato komunikace také přináší určitá ryzika pro lidi, co chtějí váš počítač zneužít a nebo si přečíst velmi tajná data. Proto je potřeba veškerou komunikaci i přístup patřičně zabezpečit a váš počítač i vaše data tek před těmito útočníky ochránit. V této sekci si mimo jiné vysvětlíme základní komunikační principy a protokoly, podíváme se na různé šifrovací a zabezpečovací techniky a také na to, jakým způsobem je efektivně rozbít.",
     "imagePath": "/img/Tutorials/networks.jpg"
   },
   {
@@ -62,7 +62,7 @@
   {
     "categoryId": "OTH",
     "categoryName": "Ostatní",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "description": "V této kategorii se podíváme na všechny problémy, které nenašly zařazení v ostatních uvedených kategoriích. Například se zde můžete těšit na vysvětlení principů různých programovacích jazyků, různých nástrojů či programů, nebo různých jiných užitečných věciček, co nás náhodně napadnou.",
     "imagePath": "/img/Tutorials/others.jpg"
   }
 ]

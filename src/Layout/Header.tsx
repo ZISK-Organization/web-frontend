@@ -173,13 +173,13 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
           >
             O soutěži
           </Typography>
-          <Typography
+          {/* <Typography
             variant="h6"
             onClick={() => history.push("/Discussion")}
             className={classes.menuItem + (location.pathname.includes("Discussion") ? " " + classes.menuItemActive : "")}
           >
             Diskuze
-          </Typography>
+          </Typography> */}
         </div>
         <div className={classes.menuRepairer}>&nbsp;</div>
       </Hidden>
