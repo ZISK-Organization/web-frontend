@@ -10,21 +10,18 @@ import {
   AccordionSummary,
   AccordionDetails,
   Card,
-  CardActionArea,
   CardContent,
   Avatar,
-  Tooltip,
   Hidden,
 } from "@material-ui/core";
-import Rating from "@material-ui/lab/Rating";
 import { ExpandMore } from "@material-ui/icons";
-import { useHistory } from "react-router-dom";
 import categories from "../../Data/TaskCategories.json";
 import { series } from "../../Types/taskTypes";
 import { useLayout } from "../../Layout/LayoutContext";
 import { tasksService } from "../../Utils/ApiService";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Skeleton } from "@material-ui/lab";
+import TaskCard from "../../Components/TaskCard";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,7 +45,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Tasks() {
   const classes = useStyles();
-  const history = useHistory();
   const layout = useLayout();
   const { isAuthenticated, user } = useAuth0();
 
@@ -113,32 +109,7 @@ export default function Tasks() {
                     {series.tasks.map((task) => (
                       <Grid item key={task.id} lg={3}>
                         <br />
-                        <Card
-                          onClick={() => {
-                            history.push(`/Tasks/${task.id}`);
-                          }}
-                        >
-                          <CardActionArea>
-                            <CardContent>
-                              <Typography variant="h5" component="h2">
-                                {task.name}
-                              </Typography>
-                              <Typography color="textSecondary">{new Date(task.deadline).toLocaleString()}</Typography>
-                              <br />
-                              <br />
-                              <div className={classes.iconsContainer}>
-                                {task.category.map((cat) => (
-                                  <Tooltip title={categories.filter((c) => c.id === cat)[0].name} key={cat}>
-                                    <Avatar sizes="small" src={categories.filter((c) => c.id === cat)[0].icon} />
-                                  </Tooltip>
-                                ))}
-                              </div>
-                              <br />
-                              <br />
-                              <Rating color="primary" value={task.difficulty} readOnly max={4} />
-                            </CardContent>
-                          </CardActionArea>
-                        </Card>
+                        <TaskCard task={task} />
                       </Grid>
                     ))}
                   </Grid>
