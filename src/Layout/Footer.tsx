@@ -77,23 +77,17 @@ export default function Footer({ hidden, changeTheme }: IProps) {
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <div style={{ textAlign: "center", width: "100%" }}>
-                      <Tooltip
-                        title="Sleduj nás na facebooku"
-                        onClick={() => window.open("https://www.facebook.com/groups/119126673737818", "_blank")}
-                      >
+                      <Tooltip title="Sleduj nás na facebooku" onClick={() => window.open("https://www.facebook.com/groups/119126673737818", "_blank")}>
                         <IconButton>
                           <Facebook />
                         </IconButton>
                       </Tooltip>
-                      <Tooltip title="Sleduj nás na instagramu">
+                      <Tooltip title="Sleduj nás na instagramu" onClick={() => window.open("https://www.instagram.com/zisk_seminar", "_blank")}>
                         <IconButton>
                           <Instagram />
                         </IconButton>
                       </Tooltip>
-                      <Tooltip
-                        title="Sleduj nás na githubu"
-                        onClick={() => window.open("https://github.com/ZISK-Organization", "_blank")}
-                      >
+                      <Tooltip title="Sleduj nás na githubu" onClick={() => window.open("https://github.com/ZISK-Organization", "_blank")}>
                         <IconButton>
                           <GitHub />
                         </IconButton>
