@@ -173,6 +173,13 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
           >
             O soutěži
           </Typography>
+          <Typography
+            variant="h6"
+            onClick={() => history.push("/Archive")}
+            className={classes.menuItem + (location.pathname.includes("Archive") ? " " + classes.menuItemActive : "")}
+          >
+            Archív
+          </Typography>
           {/* <Typography
             variant="h6"
             onClick={() => history.push("/Discussion")}
