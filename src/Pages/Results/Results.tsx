@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, useTheme, Hidden, Tabs, Tab, Select, MenuItem } from "@material-ui/core";
+import { Container, useTheme, Hidden, Tabs, Tab, Select, MenuItem, Tooltip, IconButton } from "@material-ui/core";
 import MUIDataTable from "mui-datatables";
 import { round } from "../../Utils/Common";
 import useWindowDimensions from "../../Hooks/GetWindowDimensions";
@@ -9,6 +9,8 @@ import { Result } from "../../Types/results";
 import { reducers } from "../../Utils/Reducers";
 import { useLayout } from "../../Layout/LayoutContext";
 import { profilesService, submissionsService } from "../../Utils/ApiService";
+import { History } from "@material-ui/icons";
+import YearSelect, { currentYear } from "../../Components/YearSelect";
 
 export default function Results() {
   const theme = useTheme();
@@ -25,11 +27,11 @@ export default function Results() {
     setTab(newVal);
   };
 
-  useEffect(() => {
+  const reloadData = (year: number) => {
     layout.setIsLoading(true);
     submissionsService.get(
       "/results",
-      {},
+      { year: year % 100 },
       {
         success: (res: Result[]) => {
           setResults(res);
@@ -38,6 +40,10 @@ export default function Results() {
         error: () => layout.error("Při načítání výsledků došlo k chybě"),
       }
     );
+  };
+
+  useEffect(() => {
+    reloadData(currentYear);
     // eslint-disable-next-line
   }, []);
 
@@ -62,7 +68,7 @@ export default function Results() {
     { name: "avgPerTask", label: "Ø Bodů za úlohu", options: { display: !isMobile } },
   ];
 
-  const adminIds = ["github|10522096", "github|1266171", "google-oauth2|100845407094980221581"]; // TODO
+  const adminIds = ["github|10522096", "github|1266171", "google-oauth2|100845407094980221581"]; // TODO autoload
   const tabNames = ["Středoškoláci", "Vysokoškoláci", "Ostatní", "Všichni"];
 
   const filterUser = (userId: string) => {
@@ -124,6 +130,18 @@ export default function Results() {
         columns={columnDefinitions}
         data={data}
         options={{
+          customToolbar: () => (
+            <YearSelect
+              renderOpener={(onClick) => (
+                <Tooltip title="Zobrazit historické výsledky">
+                  <IconButton onClick={onClick}>
+                    <History />
+                  </IconButton>
+                </Tooltip>
+              )}
+              onSelect={reloadData}
+            />
+          ),
           selectableRows: "none",
           responsive: "standard",
           download: false,
