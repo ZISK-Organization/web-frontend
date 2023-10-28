@@ -26,14 +26,15 @@ interface IProps {
   src: string;
   label: string;
   image: string;
+  externalLink?: boolean;
 }
 
-export default function HomeRoutingIcon({ src, label, image }: IProps) {
+export default function HomeRoutingIcon({ src, label, image, externalLink }: IProps) {
   const classes = useStyles();
   const history = useHistory();
 
   return (
-    <div className={classes.root} onClick={() => history.push(src)}>
+    <div className={classes.root} onClick={() => (externalLink ? window.open(src, "_blank") : history.push(src))}>
       <img src={image} className={classes.icon} alt="icon" />
       <Typography align="center" className={classes.label} variant="h6">
         {label}

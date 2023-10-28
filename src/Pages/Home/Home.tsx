@@ -83,7 +83,7 @@ export default function Home() {
       <div className={classes.logo}></div>
       <div className={classes.iconsPanel}>
         <HomeRoutingIcon image="/img/task.png" label="Úlohy" src="/Tasks" />
-        <HomeRoutingIcon image="/img/tut.png" label="Tutoriály" src="/Tutorials" />
+        <HomeRoutingIcon image="/img/discord.png" label="Discord" src="https://discord.gg/Jpb9vw3hFv" externalLink />
         <HomeRoutingIcon image="/img/meme.png" label="Memes" src="/Memes" />
         <HomeRoutingIcon image="/img/trophy.png" label="Výsledky" src="/Results" />
       </div>
