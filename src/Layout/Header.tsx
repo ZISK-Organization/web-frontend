@@ -180,6 +180,13 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
           >
             Archív
           </Typography>
+          <Typography
+            variant="h6"
+            onClick={() => window.open("https://discord.gg/Jpb9vw3hFv", "_blank")}
+            className={classes.menuItem}
+          >
+            Discord
+          </Typography>
           {/* <Typography
             variant="h6"
             onClick={() => history.push("/Discussion")}
