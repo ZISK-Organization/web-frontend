@@ -15,6 +15,8 @@ import Profile from "./Pages/Profile/Profile";
 import TutorialsCategory from "./Pages/TutorialsCategory/TutorialsCategory";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
 import Archive from "./Pages/Archive/Archive";
+import Articles from "./Pages/Articles/Articles";
+import Article from "./Pages/Article/Article";
 
 interface IdParams {
   id: string;
@@ -28,10 +30,24 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Tasks" exact component={Tasks} />
-        <Route path="/Tasks/:id" exact render={({ match }: TaskProps) => <Task taskId={match.params.id} isTutorial={false} />} />
-        <Route path="/Tutorials/:id" exact render={({ match }: TaskProps) => <TutorialsCategory categoryId={match.params.id} />} />
-        <Route path="/Tutorial/:id" exact render={({ match }: TaskProps) => <Task taskId={match.params.id} isTutorial={true} />} />
+        <Route
+          path="/Tasks/:id"
+          exact
+          render={({ match }: TaskProps) => <Task taskId={match.params.id} isTutorial={false} />}
+        />
+        <Route
+          path="/Tutorials/:id"
+          exact
+          render={({ match }: TaskProps) => <TutorialsCategory categoryId={match.params.id} />}
+        />
+        <Route
+          path="/Tutorial/:id"
+          exact
+          render={({ match }: TaskProps) => <Task taskId={match.params.id} isTutorial={true} />}
+        />
         <Route path="/Tutorials" exact component={Tutorials} />
+        <Route path="/Articles" exact component={Articles} />
+        <Route path="/Articles/:id" exact render={({ match }: TaskProps) => <Article id={match.params.id} />} />
         <Route path="/Memes" exact component={Memes} />
         <Route path="/Results" exact component={Results} />
         <Route path="/About" exact component={About} />

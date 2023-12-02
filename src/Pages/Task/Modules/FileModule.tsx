@@ -109,6 +109,7 @@ export default function FileModule({ module, submit, userId, moduleId }: IProps)
         onChange={(files) => setDropZoneFiles(files)}
         maxFileSize={module.maxFileSize}
         filesLimit={module.filesLimit}
+        showAlerts={["error", "info"]}
       />
       <br />
       <Button disabled={loading} color="primary" onClick={upload}>

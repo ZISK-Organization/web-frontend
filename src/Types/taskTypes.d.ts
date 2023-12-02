@@ -41,3 +41,13 @@ export interface fileModuleMeta extends commonModuleMeta {
   maxFileSize: number;
   filesLimit: number;
 }
+export interface articleMeta {
+  id: string;
+  title: string;
+  from: string | Date;
+  to: string | Date;
+  published: boolean;
+  photos: string[];
+}
+
+
