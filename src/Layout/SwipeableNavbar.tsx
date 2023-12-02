@@ -1,6 +1,16 @@
 import React from "react";
 import { SwipeableDrawer, List, ListItem, ListItemIcon, ListItemText /*Avatar, Dialog*/, Avatar } from "@material-ui/core";
-import { Person, AssignmentTurnedIn, MenuBook, Image, FormatListNumbered, Info, Archive, Message } from "@material-ui/icons";
+import {
+  Person,
+  AssignmentTurnedIn,
+  MenuBook,
+  Image,
+  FormatListNumbered,
+  Info,
+  Archive,
+  Message,
+  Group,
+} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 
@@ -68,6 +78,12 @@ export default function RightDrawer({ open, setOpen, isAuthenticated, loginWithR
             <Archive />
           </ListItemIcon>
           <ListItemText primary="Archív" />
+        </ListItem>
+        <ListItem button onClick={() => history.push("/Articles")}>
+          <ListItemIcon>
+            <Group />
+          </ListItemIcon>
+          <ListItemText primary="Akce" />
         </ListItem>
         <ListItem button onClick={() => window.open("https://discord.gg/Jpb9vw3hFv", "_blank")}>
           <ListItemIcon>

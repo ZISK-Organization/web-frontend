@@ -182,6 +182,13 @@ export default function Header({ openMobileNavbar, isAuthenticated, loginWithRed
           </Typography>
           <Typography
             variant="h6"
+            onClick={() => history.push("/Articles")}
+            className={classes.menuItem + (location.pathname.includes("Articles") ? " " + classes.menuItemActive : "")}
+          >
+            Akce
+          </Typography>
+          <Typography
+            variant="h6"
             onClick={() => window.open("https://discord.gg/Jpb9vw3hFv", "_blank")}
             className={classes.menuItem}
           >
