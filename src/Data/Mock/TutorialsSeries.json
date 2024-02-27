@@ -1,4 +1,10 @@
 {
+  "ALG": [
+    {
+      "id": "01",
+      "name": "Matematika"
+    }
+  ],
   "NET": [
     {
       "id": "01",
