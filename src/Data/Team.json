@@ -34,5 +34,14 @@
     "email": "chwiedziuk@matfyz.cz",
     "github": "https://github.com/ondrachwiedziuk",
     "birthDate": "2002-01-01"
+  },
+  {
+    "motto": "Když to funguje, nedotýkej se toho...",
+    "about": "Studuji střední školu se zaměřením na informatiku a už od dětství mě baví vše, co souvisí s počítači. V rámci informatiky mě nejvíce zajímá computer vision, kryptografie a analýza dat. Kromě toho se věnuji i grafickému designu a 3D modelování. Mimo svět počítačů mě baví tvořit a vyrábět věci, ať už jde o práci se dřevem nebo třeba stavbu raket.",
+    "photo": "/img/Team/OldrichHalabala.jpg",
+    "name": "Oldřich Halabala",
+    "email": "oldrich.halabala@gmail.com",
+    "github": "https://github.com/Olda-hal",
+    "birthDate": "2006-08-11"
   }
 ]
