@@ -5,6 +5,7 @@ import {
   Theme,
   Container,
   Grid,
+  Typography,
   // useTheme,
   // Card,
   // CardActionArea,
@@ -17,10 +18,12 @@ import {
 // import { ChevronRight, ChevronLeft } from "@material-ui/icons";
 // import news from "../../Data/Mock/News.json";
 import team from "../../Data/Team.json";
+import sponsors from "../../Data/Sponsors.json";
 import TeamMemberCard from "./TeamMemberCard";
 import DataCard from "../../Components/DataCard";
 import HomeRoutingIcon from "../../Components/HomeRoutingIcon";
 import { getThemeStoredCode } from "../../Utils/Common";
+import SponsorCard from "./SponsorCard";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -182,29 +185,26 @@ export default function Home() {
         theme="dark"
       />
 
-      <Container
-        maxWidth="xl"
-        style={{ position: "relative", zIndex: 10, backgroundColor: getThemeStoredCode() === "light" ? "white" : "#212121" }}
-      >
+      <Container maxWidth="xl" style={{ position: "relative", zIndex: 10, backgroundColor: getThemeStoredCode() === "light" ? "white" : "#212121" }}>
         <br />
         <br />
         <Grid container>
           {team.map((t, i) => (
             <Grid className={classes.cardContainer} key={i} item xs={12} md={6} lg={4}>
-              <TeamMemberCard
-                photo={t.photo}
-                name={t.name}
-                age={new Date().getUTCFullYear() - new Date(t.birthDate).getUTCFullYear()}
-                motto={t.motto}
-                email={t.email}
-                github={t.github}
-                about={t.about}
-                web={undefined}
-              />
+              <TeamMemberCard photo={t.photo} name={t.name} age={new Date().getUTCFullYear() - new Date(t.birthDate).getUTCFullYear()} motto={t.motto} email={t.email} github={t.github} about={t.about} web={undefined} />
             </Grid>
           ))}
         </Grid>
         <br />
+        <Typography variant="h3">Sponzoři</Typography>
+        <br />
+        <Grid container>
+          {sponsors.map((t, i) => (
+            <Grid className={classes.cardContainer} key={i} item xs={12} lg={6}>
+              <SponsorCard logo={t.logo} name={t.name} about={t.about} link={t.link} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </>
   );
