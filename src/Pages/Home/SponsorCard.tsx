@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Box, Card, CardContent, createStyles, Grid, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Box, Card, CardContent, createStyles, Grid, makeStyles, Theme, Typography } from "@material-ui/core";
 
 interface IProps {
   logo: string;
