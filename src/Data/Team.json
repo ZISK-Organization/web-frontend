@@ -1,7 +1,7 @@
 [
   {
-    "motto": "Automatizace je optimalizační technika minimalizující lidskou chybu",
-    "about": "Studuji robotiku a umělou inteligenci na technické universitě v Mnichově. Zajímám se převážně o robotiku, automatizační techniky a autonomní řízení. Dále mám rád decentralizaci a decentralizované systémy a Web 3.0. Mimo to mám rád ježdění na kole, plavání a sebeobranu.",
+    "motto": "Chyba je vždy mezi židlí a počítačem",
+    "about": "Studuji robotiku a umělou inteligenci na technické universitě v Mnichově. Zajímám se převážně o robotiku, automatizační techniky a autonomní řízení. Dále mám rád decentralizaci, decentralizované systémy a Web 3.0. Mimo to mám rád ježdění na kole, plavání a sebeobranu.",
     "photo": "/img/Team/StastnyJakub.png",
     "name": "Jakub Šťastný",
     "email": "xstastnyj@gmail.com",
@@ -27,7 +27,7 @@
     "birthDate": "2000-01-01"
   },
   {
-    "motto": "Všechno stojí za to zkusit",
+    "motto": "Informatika je jen aplikovaná algebra",
     "about": "Jsem student MFF UK, oboru Matematika pro IT. Ačkoli se chci věnovat informatice, stále jsem srdcem matematik. Mezi mé další koníčky patří historie, cestování a vaření.",
     "photo": "/img/Team/ChwidOndra.jpg",
     "name": "Ondřej Chwiedziuk",
@@ -43,5 +43,14 @@
     "email": "oldrich.halabala@gmail.com",
     "github": "https://github.com/Olda-hal",
     "birthDate": "2006-08-11"
+  },
+  {
+    "motto": "Základ je alespoň 8 hodin spánku",
+    "about": "Studuju mezifakultní obor Bioinformatika na PŘF a MFF UK. Ve svém volném čase (index out of range) se vyhýbám řešení osobních problémů zkoušením nových věcí. Mimoškolní zájmy: organizace akcí pro spolek, excentrické brigády, behaviorální psychologie, šití, volejbal a sporty obecně. Oblíbený předmět: genetika a matematická analýza.",
+    "photo": "/img/Team/Manka.jpg",
+    "name": "Manka Roblíková",
+    "email": "roblikovamanka@gmail.com",
+    "github": "https://github.com/Beelzebufo2001",
+    "birthDate": "2001-15-12"
   }
 ]
