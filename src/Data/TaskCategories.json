@@ -3,6 +3,7 @@
   { "id": "THE", "icon": "/img/Categories/THEO.png", "name": "Teoretická informatika" },
   { "id": "AIO", "icon": "/img/Categories/ai.png", "name": "Umělá inteligence a optimalizační problémy" },
   { "id": "CVG", "icon": "/img/Categories/cv.png", "name": "Computer vision a počítačová grafika" },
+  { "id": "ROB", "icon": "/img/Categories/ROB.png", "name": "Robotika a controll" },
   { "id": "NET", "icon": "/img/Categories/network.png", "name": "Sítě a bezpečnost" },
   { "id": "DB", "icon": "/img/Categories/db.png", "name": "Databáze a big data" },
   { "id": "OS", "icon": "/img/Categories/os.png", "name": "Operační systémy a nízkoúrovňové programování" },
