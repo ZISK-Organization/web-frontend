@@ -107,7 +107,7 @@ export default function Task({ taskId, isTutorial }: IProps) {
                 </Typography>
                 {new Date(task.deadline).getTime() > new Date().getTime() && (
                   <Typography variant="subtitle1">
-                    Zbývá jetě {Math.floor((new Date(task.deadline).getTime() - new Date().getTime()) / 86400000)} d{" "}
+                    Zbývá ještě {Math.floor((new Date(task.deadline).getTime() - new Date().getTime()) / 86400000)} d{" "}
                     {Math.round(((new Date(task.deadline).getTime() - new Date().getTime()) % 86400000) / 3600000)} h
                   </Typography>
                 )}
