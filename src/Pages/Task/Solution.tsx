@@ -42,11 +42,12 @@ export default function Solution({ taskId }: IProps) {
   }, [taskId]);
 
   const iframeReady = () => {
-    let iframe = document.getElementById("assignmentIframe") as HTMLIFrameElement;
-    //@ts-ignore
-    let iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-    if (iframeWin.document.body)
-      setFrameHeight((iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight) + " px");
+    setTimeout(() => {
+      let iframe = document.getElementById("assignmentIframe") as HTMLIFrameElement;
+      //@ts-ignore
+      let iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+      if (iframeWin.document.body) setFrameHeight((iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight) + " px");
+    }, 1000);
   };
 
   return (
@@ -60,11 +61,7 @@ export default function Solution({ taskId }: IProps) {
         srcDoc={`<html>
                   <head>
                       <link rel="stylesheet" href="/css/assignmentStyles.css" />
-                      ${
-                        (localStorage.getItem("theme") || "light") === "dark"
-                          ? '<link rel="stylesheet" href="/css/assignmentDarkStyles.css" /></>'
-                          : ""
-                      }
+                      ${(localStorage.getItem("theme") || "light") === "dark" ? '<link rel="stylesheet" href="/css/assignmentDarkStyles.css" /></>' : ""}
                   </head>
                   <body>
                     ${content}
